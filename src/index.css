@@ -1,0 +1,70 @@
+/* Thème inspiré du site officiel Super Smash Bros. Ultimate (smashbros.com) */
+:root {
+  --smash-red: #e60012;
+  --smash-red-hover: #ff1a2e;
+  --smash-red-soft: rgba(230, 0, 18, 0.25);
+  --smash-bg: #0d0d0d;
+  --smash-bg-card: rgba(20, 20, 20, 0.95);
+  --smash-border: rgba(255, 255, 255, 0.12);
+  --smash-text: #ffffff;
+  --smash-text-muted: rgba(255, 255, 255, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--smash-bg);
+  min-height: 100vh;
+  color: var(--smash-text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Couleur primaire rouge : boutons et radios */
+.ant-btn-primary {
+  background: var(--smash-red) !important;
+  border-color: var(--smash-red) !important;
+}
+.ant-btn-primary:hover {
+  background: var(--smash-red-hover) !important;
+  border-color: var(--smash-red-hover) !important;
+}
+
+/* Boutons blancs / default : hover rouge */
+.ant-btn:not(.ant-btn-primary):hover {
+  color: var(--smash-red) !important;
+  border-color: var(--smash-red) !important;
+}
+
+/* Radio buttons : hover et sélection en rouge */
+.ant-radio-button-wrapper:hover {
+  color: var(--smash-red) !important;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: var(--smash-red) !important;
+  border-color: var(--smash-red) !important;
+  color: #fff !important;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background: var(--smash-red-hover) !important;
+  border-color: var(--smash-red-hover) !important;
+  color: #fff !important;
+}
+.ant-radio-wrapper:hover .ant-radio-inner,
+.ant-radio:hover .ant-radio-inner {
+  border-color: var(--smash-red) !important;
+}
+.ant-radio-input:focus + .ant-radio-inner {
+  box-shadow: 0 0 0 2px var(--smash-red-soft) !important;
+}
+.ant-radio-checked .ant-radio-inner {
+  border-color: var(--smash-red) !important;
+  background: var(--smash-red) !important;
+}

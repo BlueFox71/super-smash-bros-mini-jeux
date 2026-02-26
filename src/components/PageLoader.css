@@ -1,0 +1,12 @@
+.page-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1rem;
+}
+
+.page-loader-message {
+  font-size: 0.95rem;
+}

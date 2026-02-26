@@ -1,0 +1,1956 @@
+[
+  {
+    "id": 1,
+    "name": "Mario",
+    "series": "Super Mario",
+    "number": "01",
+    "filename": "mario.png",
+    "zoom": 140,
+    "position": {
+      "top": -20,
+      "left": -20
+    },
+    "hints": [
+      "Il peut asperger d'eau",
+      "Il passe son temps à sauver sa princesse"
+    ],
+    "firstAppearance": "1981",
+    "videoGames": [
+      "Super Mario Bros.",
+      "Super Mario 64",
+      "Super Mario Odyssey"
+    ],
+    "story": "Plombier originaire du Royaume Champignon, Mario est le héros principal de l’univers Nintendo. Courageux et optimiste, il sauve régulièrement la princesse Peach des griffes de Bowser. Il traverse des mondes variés, des plaines verdoyantes aux galaxies lointaines, en utilisant sauts, power-ups et détermination. Son sens du devoir et son esprit aventurier font de lui un symbole du jeu vidéo."
+  },
+  {
+    "id": 2,
+    "name": "Donkey Kong",
+    "series": "Donkey Kong",
+    "number": "02",
+    "filename": "donkey_kong.png",
+    "zoom": 180,
+    "position": {
+      "top": -10,
+      "left": 50
+    },
+    "hints": [
+      "Il porte une cravate",
+      "C'est un animal"
+    ],
+    "firstAppearance": "1981",
+    "videoGames": [
+      "Donkey Kong Country",
+      "Donkey Kong 64",
+      "Donkey Kong Country: Tropical Freeze"
+    ],
+    "story": "Gorille puissant vivant sur son île tropicale, Donkey Kong protège son territoire et son trésor de bananes contre divers envahisseurs. Héritier d’une longue lignée, il combine force brute et agilité surprenante. Il affronte des ennemis comme King K. Rool et parcourt jungles, volcans et ruines antiques pour défendre sa famille et ses amis."
+  },
+  {
+    "id": 3,
+    "name": "Link",
+    "series": "The Legend of Zelda",
+    "number": "03",
+    "filename": "link.png",
+    "zoom": 250,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Il porte une casquette rouge",
+      "Ses munitions sont des cacahuètes"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Ocarina of Time",
+      "Breath of the Wild",
+      "Tears of the Kingdom"
+    ],
+    "story": "Link est le héros élu par la Triforce du Courage pour protéger le royaume d’Hyrule. Armé de l’épée de légende et du bouclier Hylien, il combat les forces du mal incarnées par Ganon. Silencieux mais déterminé, il voyage à travers le temps et les royaumes pour sauver la princesse Zelda et restaurer l’équilibre du monde."
+  },
+  {
+    "id": 4,
+    "name": "Samus",
+    "series": "Metroid",
+    "number": "04",
+    "filename": "samus.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Il a un écho",
+      "Il était en duo avec un pokémon dans une histoire"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Metroid Prime",
+      "Super Metroid",
+      "Metroid Dread"
+    ],
+    "story": "Samus Aran est une chasseuse de primes galactique élevée par les Chozo. Équipée d’une armure technologique avancée, elle affronte les pirates de l’espace et les redoutables Metroids. Son passé tragique l’a forgée en combattante solitaire, prête à risquer sa vie pour empêcher des menaces biologiques de détruire la galaxie."
+  },
+  {
+    "id": 5,
+    "name": "Samus sombre",
+    "series": "Metroid",
+    "number": "04ε",
+    "filename": "samus_sombre.png",
+    "zoom": 170,
+    "position": {
+      "top": -10,
+      "left": 80
+    },
+    "hints": [
+      "Il est un écho",
+      "C'est une forme corrompue et consciente"
+    ],
+    "firstAppearance": "2002",
+    "videoGames": [
+      "Metroid Prime 2",
+      "Metroid Prime 3"
+    ],
+    "story": "Née d’une corruption au Phazon, Samus Sombre est une entité créée à partir de l’ADN de Samus. Elle incarne une version froide et destructrice de l’héroïne. Silencieuse et redoutable, elle agit comme une rivale mystérieuse, cherchant à propager le Phazon et à défier l’originale."
+  },
+  {
+    "id": 6,
+    "name": "Yoshi",
+    "series": "Super Mario",
+    "number": "05",
+    "filename": "yoshi.png",
+    "zoom": 130,
+    "position": {
+      "top": -30,
+      "left": 60
+    },
+    "hints": [
+      "Il aime les oeufs",
+      "Il bat des pieds pour ralentir sa chute "
+    ],
+    "firstAppearance": "1990",
+    "videoGames": [
+      "Yoshi's Island",
+      "Yoshi's Story",
+      "Yoshi's Crafted World"
+    ],
+    "story": "Yoshi est un dinosaure joyeux et fidèle allié de Mario. Protecteur des bébés héros, il utilise sa langue extensible pour avaler ennemis et objets. Derrière son apparence adorable se cache un aventurier courageux capable de traverser des mondes colorés pour sauver ses amis."
+  },
+  {
+    "id": 7,
+    "name": "Kirby",
+    "series": "Kirby",
+    "number": "06",
+    "filename": "kirby.png",
+    "zoom": 100,
+    "position": {
+      "top": 0,
+      "left": 0
+    },
+    "hints": [
+      "Il peut avaler beaucoup de choses",
+      "Il est rose"
+    ],
+    "firstAppearance": "1992",
+    "videoGames": [
+      "Kirby's Dream Land",
+      "Kirby Super Star",
+      "Kirby and the Forgotten Land"
+    ],
+    "story": "Kirby est une petite créature rose vivant à Dream Land. Doté du pouvoir d’aspirer ses ennemis pour copier leurs capacités, il affronte rois corrompus et entités cosmiques. Malgré son apparence innocente, il sauve régulièrement son monde de menaces colossales."
+  },
+  {
+    "id": 8,
+    "name": "Fox",
+    "series": "Star Fox",
+    "number": "07",
+    "filename": "fox.png",
+    "zoom": 160,
+    "position": {
+      "top": -10,
+      "left": 40
+    },
+    "hints": [
+      "C'est un pilote d'Arwing",
+      "C'est un animal humanoïde"
+    ],
+    "firstAppearance": "1993",
+    "videoGames": [
+      "Star Fox 64",
+      "Star Fox Adventures",
+      "Star Fox Zero"
+    ],
+    "story": "Fox McCloud est le leader de l’équipe Star Fox, un groupe de mercenaires spatiaux. Pilote talentueux de l’Arwing, il combat le scientifique fou Andross pour protéger le système Lylat. Il agit en mémoire de son père disparu et défend la galaxie avec honneur."
+  },
+  {
+    "id": 9,
+    "name": "Pikachu",
+    "series": "Pokémon",
+    "number": "08",
+    "filename": "pikachu.png",
+    "zoom": 120,
+    "position": {
+      "top": 0,
+      "left": 30
+    },
+    "hints": [
+      "Il a aidé un combattant à trouver une combinaison dans une histoire",
+      "Type souris"
+    ],
+    "firstAppearance": "1996",
+    "videoGames": [
+      "Pokémon Rouge/Bleu",
+      "Pokémon Jaune",
+      "Pokémon Épée/Bouclier"
+    ],
+    "story": "Pikachu est un Pokémon de type Électrik célèbre pour sa loyauté et sa puissance. Capable de libérer de puissantes décharges électriques, il accompagne les dresseurs dans leurs aventures. Symbole mondial de la licence Pokémon, il incarne courage et amitié."
+  },
+  {
+    "id": 10,
+    "name": "Luigi",
+    "series": "Super Mario",
+    "number": "09",
+    "filename": "luigi.png",
+    "zoom": 160,
+    "position": {
+      "top": 0,
+      "left": 70
+    },
+    "hints": [
+      "Il chasse des fantômes",
+      "Il est un grand peureux"
+    ],
+    "firstAppearance": "1983",
+    "videoGames": [
+      "Luigi's Mansion",
+      "Super Mario Galaxy",
+      "New Super Mario Bros."
+    ],
+    "story": "Frère cadet de Mario, Luigi est plus timide mais tout aussi héroïque. Il affronte ses peurs dans des manoirs hantés pour sauver ses proches. Doté d’un grand cœur, il prouve souvent que le courage n’exclut pas la peur."
+  },
+  {
+    "id": 11,
+    "name": "Ness",
+    "series": "EarthBound",
+    "number": "10",
+    "filename": "ness.png",
+    "zoom": 120,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Il utilise la PK (psychokinésie)",
+      "Il a une batte de baseball"
+    ],
+    "firstAppearance": "1994",
+    "videoGames": [
+      "EarthBound",
+      "Mother 2"
+    ],
+    "story": "Ness est un jeune garçon doté de pouvoirs psychiques appelés PSI. Accompagné de ses amis, il voyage pour arrêter une menace cosmique nommée Giygas. Malgré son jeune âge, il fait preuve d’un courage exceptionnel face à l’inconnu."
+  },
+  {
+    "id": 12,
+    "name": "Captain Falcon",
+    "series": "F-Zero",
+    "number": "11",
+    "filename": "captain_falcon.png",
+    "zoom": 350,
+    "position": {
+      "top": -5,
+      "left": 60
+    },
+    "hints": [
+      "C'est un pilote de vaisseau de course",
+      "F-Zero"
+    ],
+    "firstAppearance": "1990",
+    "videoGames": [
+      "F-Zero",
+      "F-Zero GX"
+    ],
+    "story": "Pilote légendaire du circuit F-Zero, Captain Falcon est connu pour sa vitesse et son attaque iconique Falcon Punch. Chasseur de primes à ses heures, il poursuit criminels et rivaux dans un univers futuriste."
+  },
+  {
+    "id": 13,
+    "name": "Rondoudou",
+    "series": "Pokémon",
+    "number": "12",
+    "filename": "rondoudou.png",
+    "zoom": 120,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Il a une feutre noir",
+      "Il roule pour attaquer"
+    ],
+    "firstAppearance": "1996",
+    "videoGames": [
+      "Pokémon Rouge/Bleu",
+      "Pokémon Soleil/Lune"
+    ],
+    "story": "Jigglypuff est un Pokémon capable d’endormir ses adversaires grâce à son chant. Sous son apparence adorable se cache un combattant redoutable qui utilise flottement et précision."
+  },
+  {
+    "id": 14,
+    "name": "Peach",
+    "series": "Super Mario",
+    "number": "13",
+    "filename": "peach.png",
+    "zoom": 300,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Il porte une robe rose",
+      "Il balance des navets"
+    ],
+    "firstAppearance": "1985",
+    "videoGames": [
+      "Super Mario Bros.",
+      "Super Princess Peach",
+      "Super Mario 3D World"
+    ],
+    "story": "Princesse du Royaume Champignon, Peach est souvent enlevée par Bowser mais montre aussi sa capacité à se défendre. Elle gouverne avec bienveillance et participe activement aux aventures pour protéger son royaume."
+  },
+  {
+    "id": 15,
+    "name": "Daisy",
+    "series": "Super Mario",
+    "number": "13ε",
+    "filename": "daisy.png",
+    "zoom": 300,
+    "position": {
+      "top": 10,
+      "left": 40
+    },
+    "hints": [
+      "Il est un écho",
+      "Il porte une robe orange"
+    ],
+    "firstAppearance": "1989",
+    "videoGames": [
+      "Super Mario Land",
+      "Mario Kart",
+      "Mario Party"
+    ],
+    "story": "Princesse du royaume de Sarasaland, Daisy est énergique et compétitive. Elle participe à de nombreuses compétitions sportives aux côtés de Mario et ses amis, affichant un tempérament dynamique."
+  },
+  {
+    "id": 16,
+    "name": "Bowser",
+    "series": "Super Mario",
+    "number": "14",
+    "filename": "bowser.png",
+    "zoom": 180,
+    "position": {
+      "top": 40,
+      "left": 90
+    },
+    "hints": [
+      "Il est le plus grand méchant tortue",
+      "Il crache du feu"
+    ],
+    "firstAppearance": "1985",
+    "videoGames": [
+      "Super Mario Bros.",
+      "Super Mario Galaxy",
+      "Bowser's Fury"
+    ],
+    "story": "Roi des Koopas et principal antagoniste de Mario, Bowser cherche sans cesse à conquérir le Royaume Champignon et à épouser Peach. Puissant, résistant et capable de cracher du feu, il dirige une immense armée de sbires. Malgré son rôle de méchant, il montre parfois un côté comique et même coopératif dans certaines aventures."
+  },
+  {
+    "id": 17,
+    "name": "Ice Climbers",
+    "series": "Ice Climbers",
+    "number": "15",
+    "filename": "ice_climbers.png",
+    "zoom": 130,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Ils escaladent",
+      "Ils ont chacun un marteau"
+    ],
+    "firstAppearance": "1985",
+    "videoGames": [
+      "Ice Climber"
+    ],
+    "story": "Popo et Nana sont deux jeunes grimpeurs explorant des montagnes glacées. Armés de maillets, ils escaladent sommets et plateformes pour survivre aux dangers. Leur force réside dans leur coopération parfaite, agissant toujours en duo."
+  },
+  {
+    "id": 18,
+    "name": "Sheik",
+    "series": "The Legend of Zelda",
+    "number": "16",
+    "filename": "sheik.png",
+    "zoom": 300,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Ce n'est pas un écho mais c'est une transformation d'un combattant",
+      "Sa tenue contient un oeil"
+    ],
+    "firstAppearance": "1998",
+    "videoGames": [
+      "Ocarina of Time"
+    ],
+    "story": "Sheik est l'identité secrète de la princesse Zelda dans Ocarina of Time. Sous cette apparence agile et mystérieuse, elle aide Link dans sa quête. Rapide et stratégique, Sheik privilégie discrétion et précision."
+  },
+  {
+    "id": 19,
+    "name": "Zelda",
+    "series": "The Legend of Zelda",
+    "number": "17",
+    "filename": "zelda.png",
+    "zoom": 350,
+    "position": {
+      "top": -5,
+      "left": 40
+    },
+    "hints": [
+      "Il peut se téléporter",
+      "Il n'est pas le héros principal mais éponyme de l'univers"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "A Link to the Past",
+      "Ocarina of Time",
+      "Breath of the Wild"
+    ],
+    "story": "Princesse d’Hyrule et détentrice de la Triforce de la Sagesse, Zelda joue un rôle clé dans la protection du royaume. Dotée de puissants pouvoirs magiques, elle combat l’influence de Ganon et guide Link vers la victoire."
+  },
+  {
+    "id": 20,
+    "name": "Dr. Mario",
+    "acceptedNames": [
+      "Docteur Mario"
+    ],
+    "series": "Super Mario",
+    "number": "18",
+    "filename": "dr_mario.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "En plus d'être plombier, il exerce un autre métier",
+      "Il lance des pilules"
+    ],
+    "firstAppearance": "1990",
+    "videoGames": [
+      "Dr. Mario",
+      "Dr. Mario 64"
+    ],
+    "story": "Version médecin de Mario, Dr. Mario combat des virus à l’aide de capsules médicinales. Sérieux et concentré, il applique ses talents pour sauver des patients tout en conservant l’énergie héroïque de Mario."
+  },
+  {
+    "id": 21,
+    "name": "Pichu",
+    "series": "Pokémon",
+    "number": "19",
+    "filename": "pichu.png",
+    "zoom": 130,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Type souris",
+      "Il invoque un orage"
+    ],
+    "firstAppearance": "1999",
+    "videoGames": [
+      "Pokémon Or/Argent",
+      "Pokémon HeartGold/SoulSilver"
+    ],
+    "story": "Pré-évolution de Pikachu, Pichu est un Pokémon adorable mais encore inexpérimenté. Ses décharges électriques peuvent aussi le blesser, reflétant son manque de maîtrise. Malgré cela, il reste courageux."
+  },
+  {
+    "id": 22,
+    "name": "Falco",
+    "series": "Star Fox",
+    "number": "20",
+    "filename": "falco.png",
+    "zoom": 250,
+    "position": {
+      "top": 10,
+      "left": 30
+    },
+    "hints": [
+      "C'est un animal humanoïde",
+      "C'est un pilote d'Arwing"
+    ],
+    "firstAppearance": "1993",
+    "videoGames": [
+      "Star Fox 64",
+      "Star Fox Assault"
+    ],
+    "story": "Pilote talentueux et rival amical de Fox, Falco Lombardi est connu pour son attitude confiante. Expert du combat aérien, il protège le système Lylat aux côtés de l’équipe Star Fox."
+  },
+  {
+    "id": 23,
+    "name": "Marth",
+    "series": "Fire Emblem",
+    "number": "21",
+    "filename": "marth.png",
+    "zoom": 400,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "C'est un prince",
+      "Il brandit une épée"
+    ],
+    "firstAppearance": "1990",
+    "videoGames": [
+      "Fire Emblem: Shadow Dragon",
+      "Fire Emblem: Mystery of the Emblem"
+    ],
+    "story": "Prince d’Altea, Marth manie l’épée Falchion pour libérer son royaume envahi. Héros noble et stratège, il inspire ses alliés dans des batailles tactiques contre les forces du mal."
+  },
+  {
+    "id": 24,
+    "name": "Lucina",
+    "series": "Fire Emblem",
+    "number": "21ε",
+    "filename": "lucina.png",
+    "zoom": 420,
+    "position": {
+      "top": -3,
+      "left": 50
+    },
+    "hints": [
+      "Il est un écho",
+      "Son père est un combattant"
+    ],
+    "firstAppearance": "2012",
+    "videoGames": [
+      "Fire Emblem Awakening"
+    ],
+    "story": "Fille de Chrom venue d’un futur ravagé, Lucina voyage dans le passé pour empêcher une catastrophe. Déterminée et courageuse, elle manie la Falchion avec maîtrise."
+  },
+  {
+    "id": 25,
+    "name": "Link enfant",
+    "series": "The Legend of Zelda",
+    "number": "22",
+    "filename": "link_enfant.png",
+    "zoom": 250,
+    "position": {
+      "top": 10,
+      "left": 60
+    },
+    "hints": [
+      "Version plus jeune",
+      "Sa tenue est verte"
+    ],
+    "firstAppearance": "1998",
+    "videoGames": [
+      "Ocarina of Time",
+      "Majora's Mask"
+    ],
+    "story": "Version enfant de Link, Young Link vit des aventures marquantes à Hyrule et Termina. Malgré son jeune âge, il affronte des dangers terrifiants avec bravoure."
+  },
+  {
+    "id": 26,
+    "name": "Ganondorf",
+    "series": "The Legend of Zelda",
+    "number": "23",
+    "filename": "ganondorf.png",
+    "zoom": 500,
+    "position": {
+      "top": 0,
+      "left": 45
+    },
+    "hints": [
+      "Porteur de la Triforce",
+      "C'est un méchant"
+    ],
+    "firstAppearance": "1998",
+    "videoGames": [
+      "Ocarina of Time",
+      "Twilight Princess",
+      "Tears of the Kingdom"
+    ],
+    "story": "Roi des Gerudos et incarnation humaine de Ganon, Ganondorf cherche à conquérir Hyrule. Puissant sorcier et guerrier redoutable, il représente la Triforce de la Puissance."
+  },
+  {
+    "id": 27,
+    "name": "Mewtwo",
+    "series": "Pokémon",
+    "number": "24",
+    "filename": "mewtwo.png",
+    "zoom": 300,
+    "position": {
+      "top": 0,
+      "left": 55
+    },
+    "hints": [
+      "C'est un clone",
+      "Il a trois doigts"
+    ],
+    "firstAppearance": "1996",
+    "videoGames": [
+      "Pokémon Rouge/Bleu",
+      "Pokémon X/Y"
+    ],
+    "story": "Créé artificiellement à partir de l’ADN de Mew, Mewtwo est un Pokémon doté d’immenses pouvoirs psychiques. Tourmenté par son origine, il cherche à comprendre sa place dans le monde."
+  },
+  {
+    "id": 28,
+    "name": "Roy",
+    "series": "Fire Emblem",
+    "number": "25",
+    "filename": "roy.png",
+    "zoom": 350,
+    "position": {
+      "top": 5,
+      "left": 35
+    },
+    "hints": [
+      "Il a une épée qui s'enflamme",
+      "Il a des cheveux rouges-oranges"
+    ],
+    "firstAppearance": "2002",
+    "videoGames": [
+      "Fire Emblem: The Binding Blade"
+    ],
+    "story": "Jeune noble de Lycia, Roy prend les armes pour défendre son pays. Malgré son inexpérience initiale, il devient un leader respecté et courageux."
+  },
+  {
+    "id": 29,
+    "name": "Chrom",
+    "series": "Fire Emblem",
+    "number": "25ε",
+    "filename": "chrom.png",
+    "zoom": 380,
+    "position": {
+      "top": 5,
+      "left": 40
+    },
+    "hints": [
+      "Il est le père d'un combattant",
+      "Il est un écho"
+    ],
+    "firstAppearance": "2012",
+    "videoGames": [
+      "Fire Emblem Awakening"
+    ],
+    "story": "Prince de Ylisse, Chrom lutte contre des forces obscures menaçant son royaume. Protecteur et déterminé, il dirige les Veilleurs avec honneur."
+  },
+  {
+    "id": 30,
+    "name": "Mr. Game & Watch",
+    "acceptedNames": [
+      "Mr. Game et Watch",
+      "Mr Game and Watch",
+      "mister game and watch",
+      "monsieur game and watch"
+    ],
+    "series": "Game & Watch",
+    "number": "26",
+    "filename": "mr_game_and_watch.png",
+    "zoom": 130,
+    "position": {
+      "top": 0,
+      "left": 0
+    },
+    "hints": [
+      "2D",
+      "Le plus vieux des combattants chronologiquement"
+    ],
+    "firstAppearance": "1980",
+    "videoGames": [
+      "Game & Watch Series"
+    ],
+    "story": "Personnage en silhouette issu des jeux LCD Game & Watch, il incarne les débuts portables de Nintendo. Minimaliste et imprévisible, il symbolise l’histoire du jeu vidéo."
+  },
+  {
+    "id": 31,
+    "name": "Meta Knight",
+    "series": "Kirby",
+    "number": "27",
+    "filename": "meta_knight.png",
+    "zoom": 150,
+    "position": {
+      "top": 70,
+      "left": 50
+    },
+    "hints": [
+      "Guerrier masqué",
+      "Il pilote le vaisseau Halberd"
+    ],
+    "firstAppearance": "1993",
+    "videoGames": [
+      "Kirby's Adventure",
+      "Kirby Super Star",
+      "Kirby and the Forgotten Land"
+    ],
+    "story": "Meta Knight est un guerrier mystérieux maniant l’épée Galaxia. Rival et parfois allié de Kirby, il cherche à renforcer Dream Land en imposant discipline et ordre. Derrière son masque se cache un combattant honorable, prêt à affronter les plus grandes menaces."
+  },
+  {
+    "id": 32,
+    "name": "Pit",
+    "series": "Kid Icarus",
+    "number": "28",
+    "filename": "pit.png",
+    "zoom": 350,
+    "position": {
+      "top": 10,
+      "left": 40
+    },
+    "hints": [
+      "C'est un ange guerrier",
+      "Il a un écho"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Kid Icarus",
+      "Kid Icarus: Uprising"
+    ],
+    "story": "Pit est un ange au service de la déesse Palutena. Armé d’un arc sacré, il combat les forces des ténèbres pour protéger le monde. Courageux et loyal, il affronte monstres et dieux déchus."
+  },
+  {
+    "id": 33,
+    "name": "Pit Maléfique",
+    "series": "Kid Icarus",
+    "number": "28ε",
+    "filename": "pit_maléfique.png",
+    "zoom": 350,
+    "position": {
+      "top": 10,
+      "left": 60
+    },
+    "hints": [
+      "Il est un écho",
+      "Version noir"
+    ],
+    "firstAppearance": "2012",
+    "videoGames": [
+      "Kid Icarus: Uprising"
+    ],
+    "story": "Double sombre de Pit, Dark Pit agit selon sa propre volonté. Plus sérieux et indépendant, il combat parfois Pit mais peut aussi s’allier à lui pour des causes plus importantes."
+  },
+  {
+    "id": 34,
+    "name": "Samus sans armure",
+    "series": "Metroid",
+    "number": "29",
+    "filename": "samus_sans_armure.png",
+    "zoom": 350,
+    "position": {
+      "top": -5,
+      "left": 50
+    },
+    "hints": [
+      "Il est à la recherche d'une combinaison",
+      "Version plus légère et agile"
+    ],
+    "firstAppearance": "2004",
+    "videoGames": [
+      "Metroid Zero Mission",
+      "Metroid Other M"
+    ],
+    "story": "Sans son armure, Samus combat avec agilité et un pistolet paralysant. Cette version met en avant ses compétences athlétiques et son entraînement avancé."
+  },
+  {
+    "id": 35,
+    "name": "Wario",
+    "series": "WarioWare",
+    "number": "30",
+    "filename": "wario.png",
+    "zoom": 150,
+    "position": {
+      "top": -30,
+      "left": 40
+    },
+    "hints": [
+      "Il utilise son véhicule au combat",
+      "Longues moustaches"
+    ],
+    "firstAppearance": "1992",
+    "videoGames": [
+      "Wario Land",
+      "WarioWare, Inc.",
+      "WarioWare: Get It Together!"
+    ],
+    "story": "Anti-héros cupide et excentrique, Wario cherche avant tout richesse et gloire. Doté d’une force impressionnante, il vit des aventures loufoques remplies de trésors et de mini-jeux délirants."
+  },
+  {
+    "id": 36,
+    "name": "Snake",
+    "series": "Metal Gear",
+    "number": "31",
+    "filename": "snake.png",
+    "zoom": 400,
+    "position": {
+      "top": -5,
+      "left": 65
+    },
+    "hints": [
+      "Il est un combattant armé",
+      "Dans la boîte"
+    ],
+    "firstAppearance": "1987",
+    "videoGames": [
+      "Metal Gear Solid",
+      "Metal Gear Solid 3",
+      "Metal Gear Solid V"
+    ],
+    "story": "Soldat d’élite spécialisé dans l’infiltration, Snake combat les menaces nucléaires mondiales. Stratège et discret, il privilégie la furtivité et l’intelligence plutôt que la force brute."
+  },
+  {
+    "id": 37,
+    "name": "Ike",
+    "series": "Fire Emblem",
+    "number": "32",
+    "filename": "ike.png",
+    "zoom": 250,
+    "position": {
+      "top": -10,
+      "left": 30
+    },
+    "hints": [
+      "Il manie une épée",
+      "Il frappe en tombant avec une épée"
+    ],
+    "firstAppearance": "2005",
+    "videoGames": [
+      "Fire Emblem: Path of Radiance",
+      "Radiant Dawn"
+    ],
+    "story": "Mercenaire devenu héros, Ike manie une immense épée pour défendre ses idéaux. Franc et déterminé, il combat l’injustice sans se soucier des titres ou du rang."
+  },
+  {
+    "id": 38,
+    "name": "Dresseur de Pokémon",
+    "acceptedNames": [
+      "Dresseur Pokémon"
+    ],
+    "series": "Pokémon",
+    "number": "33-35",
+    "filename": "dresseur_de_pokemon.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 30
+    },
+    "hints": [
+      "Il ne combat pas lui-même",
+      "Il dirige les attaques"
+    ],
+    "firstAppearance": "1996",
+    "videoGames": [
+      "Pokémon Rouge/Bleu",
+      "Pokémon Vert Feuille"
+    ],
+    "story": "Le Dresseur Pokémon combat en utilisant Bulbizarre, Salamèche et Carapuce. Chacun représente une facette stratégique différente, illustrant la diversité du monde Pokémon."
+  },
+  {
+    "id": 39,
+    "name": "Diddy Kong",
+    "series": "Donkey Kong",
+    "number": "36",
+    "filename": "diddy_kong.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il a des cacahuètes comme munitions",
+      "Il est petit"
+    ],
+    "firstAppearance": "1994",
+    "videoGames": [
+      "Donkey Kong Country",
+      "Donkey Kong Country Returns"
+    ],
+    "story": "Partenaire fidèle de Donkey Kong, Diddy Kong est agile et malin. Il utilise sa rapidité et ses gadgets pour surmonter des obstacles que la force seule ne suffit pas à vaincre."
+  },
+  {
+    "id": 40,
+    "name": "Lucas",
+    "series": "EarthBound",
+    "number": "37",
+    "filename": "lucas.png",
+    "zoom": 150,
+    "position": {
+      "top": -10,
+      "left": 80
+    },
+    "hints": [
+      "C'est un combattant pleunichard",
+      "Il utilise le feu et la glace"
+    ],
+    "firstAppearance": "2006",
+    "videoGames": [
+      "Mother 3"
+    ],
+    "story": "Jeune garçon timide doté de pouvoirs PSI, Lucas traverse une aventure tragique marquée par la perte et le courage. Il grandit au fil de son périple et affronte une menace mécanique."
+  },
+  {
+    "id": 41,
+    "name": "Sonic",
+    "series": "Sonic the Hedgehog",
+    "number": "38",
+    "filename": "sonic.png",
+    "zoom": 150,
+    "position": {
+      "top": -10,
+      "left": 80
+    },
+    "hints": [
+      "Flèche",
+      "C'est un hérisson"
+    ],
+    "firstAppearance": "1991",
+    "videoGames": [
+      "Sonic the Hedgehog",
+      "Sonic Adventure",
+      "Sonic Frontiers"
+    ],
+    "story": "Hérisson bleu supersonique, Sonic combat le Dr. Eggman pour sauver ses amis et la planète. Sa vitesse et son attitude libre symbolisent l’aventure et l’indépendance."
+  },
+  {
+    "id": 42,
+    "name": "Roi Dadidou",
+    "series": "Kirby",
+    "number": "39",
+    "filename": "roi_dadidou.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il a un marteau",
+      "Il dirige un royaume"
+    ],
+    "firstAppearance": "1992",
+    "videoGames": [
+      "Kirby's Dream Land",
+      "Kirby Super Star"
+    ],
+    "story": "Roi autoproclamé de Dream Land, Dedede est tantôt rival, tantôt allié de Kirby. Armé de son marteau géant, il agit souvent par orgueil mais sait se montrer héroïque."
+  },
+  {
+    "id": 43,
+    "name": "Olimar",
+    "series": "Pikmin",
+    "number": "40",
+    "filename": "olimar.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il a une fusée",
+      "Il a des acolytes"
+    ],
+    "firstAppearance": "2001",
+    "videoGames": [
+      "Pikmin",
+      "Pikmin 2",
+      "Pikmin 4"
+    ],
+    "story": "Capitaine spatial échoué sur une planète inconnue, Olimar dirige des Pikmin pour survivre. Grâce à leur coopération, il explore, combat et collecte des ressources."
+  },
+  {
+    "id": 44,
+    "name": "Lucario",
+    "series": "Pokémon",
+    "number": "41",
+    "filename": "lucario.png",
+    "zoom": 120,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il sent les auras",
+      "Il a des pouvoirs psychiques"
+    ],
+    "firstAppearance": "2006",
+    "videoGames": [
+      "Pokémon Diamant/Perle",
+      "Pokémon Légendes: Arceus"
+    ],
+    "story": "Lucario est un Pokémon capable de percevoir et manipuler l’aura. Guerrier discipliné, il utilise cette énergie pour combattre avec puissance et sagesse."
+  },
+  {
+    "id": 45,
+    "name": "R.O.B.",
+    "acceptedNames": [
+      "ROB"
+    ],
+    "series": "Robotic Operating Buddy",
+    "number": "42",
+    "filename": "r.o.b.png",
+    "zoom": 150,
+    "position": {
+      "top": -20,
+      "left": 50
+    },
+    "hints": [
+      "Il était un accessoire",
+      "C'était un ministre dans une histoire"
+    ],
+    "firstAppearance": "1985",
+    "videoGames": [
+      "Stack-Up",
+      "Gyromite"
+    ],
+    "story": "Robot Accessoire de la NES, R.O.B. symbolise une époque expérimentale du jeu vidéo. Réintroduit comme combattant, il combine mécanique rétro et technologie futuriste."
+  },
+  {
+    "id": 46,
+    "name": "Link cartoon",
+    "series": "The Legend of Zelda",
+    "number": "43",
+    "filename": "link_cartoon.png",
+    "zoom": 120,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Version Toon",
+      "Il a une tenue verte"
+    ],
+    "firstAppearance": "2002",
+    "videoGames": [
+      "The Wind Waker",
+      "Phantom Hourglass",
+      "Spirit Tracks"
+    ],
+    "story": "Version stylisée et enfantine de Link, Toon Link vit des aventures maritimes à travers un vaste océan. Malgré son apparence mignonne, il fait preuve d’un courage exceptionnel et affronte des dangers majeurs pour sauver Hyrule."
+  },
+  {
+    "id": 47,
+    "name": "Wolf",
+    "series": "Star Fox",
+    "number": "44",
+    "filename": "wolf.png",
+    "zoom": 170,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il a une cicatrice",
+      "Pilote antagoniste"
+    ],
+    "firstAppearance": "1997",
+    "videoGames": [
+      "Star Fox 64",
+      "Star Fox Assault"
+    ],
+    "story": "Chef de l’équipe Star Wolf, Wolf O'Donnell est le rival direct de Fox. Pilote agressif et stratège, il privilégie la puissance et l’intimidation dans les combats spatiaux."
+  },
+  {
+    "id": 48,
+    "name": "Villageois",
+    "series": "Animal Crossing",
+    "number": "45",
+    "filename": "villageois.png",
+    "zoom": 140,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Il a un filet de pêche",
+      "Il peut avoir plusieurs apparences"
+    ],
+    "firstAppearance": "2001",
+    "videoGames": [
+      "Animal Crossing",
+      "New Leaf",
+      "New Horizons"
+    ],
+    "story": "Habitant paisible d’un village peuplé d’animaux, le Villageois mène une vie tranquille. Derrière cette apparente douceur se cache une détermination surprenante lorsqu’il doit se battre."
+  },
+  {
+    "id": 49,
+    "name": "Mega Man",
+    "series": "Mega Man",
+    "number": "46",
+    "filename": "mega_man.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Pas humain mais il a un visage humain",
+      "Son corps est une arme"
+    ],
+    "firstAppearance": "1987",
+    "videoGames": [
+      "Mega Man 2",
+      "Mega Man X",
+      "Mega Man 11"
+    ],
+    "story": "Robot conçu pour protéger l’humanité, Mega Man affronte des savants fous et des machines rebelles. En copiant les pouvoirs de ses ennemis, il s’adapte à chaque combat."
+  },
+  {
+    "id": 50,
+    "name": "Entraîneuse Wii Fit",
+    "acceptedNames": [
+      "Entraîneuse de Wii Fit",
+      "Entraîneur Wii Fit",
+      "Entraîneur de Wii Fit"
+    ],
+    "series": "Wii Fit",
+    "number": "47",
+    "filename": "entraineuse_wii_fit.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 70
+    },
+    "hints": [
+      "Il donne des leçons",
+      "Il est sportif"
+    ],
+    "firstAppearance": "",
+    "videoGames": [],
+    "story": ""
+  },
+  {
+    "id": 51,
+    "name": "Harmonie et Luma",
+    "acceptedNames": [
+      "Harmonie"
+    ],
+    "series": "Super Mario",
+    "number": "48",
+    "filename": "harmonie_et_luma.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Gardien des étoiles",
+      "Protecteur des petits êtres"
+    ],
+    "firstAppearance": "2007",
+    "videoGames": [
+      "Super Mario Galaxy",
+      "Super Mario Galaxy 2"
+    ],
+    "story": "Gardienne des étoiles, Harmonie veille sur l’univers aux côtés des Lumas. Calme et mystérieuse, elle guide Mario dans sa quête cosmique et protège l’équilibre du cosmos."
+  },
+  {
+    "id": 52,
+    "name": "Little Mac",
+    "series": "Punch-Out!",
+    "number": "49",
+    "filename": "little_mac.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Boxeur",
+      "Il donne des coups de poings"
+    ],
+    "firstAppearance": "1987",
+    "videoGames": [
+      "Punch-Out!!",
+      "Super Punch-Out!!"
+    ],
+    "story": "Jeune boxeur courageux, Little Mac affronte des adversaires bien plus grands que lui. Grâce à sa détermination et à son entraînement, il vise le titre de champion."
+  },
+  {
+    "id": 53,
+    "name": "Amphinobi",
+    "series": "Pokémon",
+    "number": "50",
+    "filename": "amphinobi.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Type eau et ténèbres",
+      "Ninja"
+    ],
+    "firstAppearance": "2013",
+    "videoGames": [
+      "Pokémon X/Y",
+      "Pokémon Soleil/Lune"
+    ],
+    "story": "Amphinobi est un Pokémon ninja agile et discret. Utilisant des attaques rapides et son Shuriken d’Eau, il combat avec précision et efficacité."
+  },
+  {
+    "id": 54,
+    "name": "Boxeur Mii",
+    "acceptedNames": [
+      "Mii Boxeur"
+    ],
+    "series": "Combattants Mii",
+    "number": "51",
+    "filename": "boxeur_mii.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Fait partie un trio de combattants",
+      "Il frappe avec ses poings"
+    ],
+    "firstAppearance": "2014",
+    "videoGames": [
+      "Super Smash Bros. Ultimate"
+    ],
+    "story": "Les combattants Mii permettent aux joueurs d’incarner leur propre avatar. Personnalisables et polyvalents, ils s’adaptent à différents styles de combat."
+  },
+  {
+    "id": 55,
+    "name": "Épéiste Mii",
+    "acceptedNames": [
+      "Mii Épéiste"
+    ],
+    "series": "Combattants Mii",
+    "number": "52",
+    "filename": "épéiste_mii.png",
+    "zoom": 200,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Fais partie un trio de combattants",
+      "Il manie une épée"
+    ],
+    "firstAppearance": "2014",
+    "videoGames": [
+      "Super Smash Bros. Ultimate"
+    ],
+    "story": "Les combattants Mii permettent aux joueurs d’incarner leur propre avatar. Personnalisables et polyvalents, ils s’adaptent à différents styles de combat."
+  },
+  {
+    "id": 56,
+    "name": "Tireur Mii",
+    "acceptedNames": [
+      "Mii Tireur",
+      "Mii Tireuse",
+      "Tireuse Mii"
+    ],
+    "series": "Combattants Mii",
+    "number": "53",
+    "filename": "tireur_mii.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Fais partie un trio de combattants",
+      "Il tire avec ses armes"
+    ],
+    "firstAppearance": "2014",
+    "videoGames": [
+      "Super Smash Bros. Ultimate"
+    ],
+    "story": "Les combattants Mii permettent aux joueurs d’incarner leur propre avatar. Personnalisables et polyvalents, ils s’adaptent à différents styles de combat."
+  },
+  {
+    "id": 57,
+    "name": "Palutena",
+    "series": "Kid Icarus",
+    "number": "54",
+    "filename": "palutena.png",
+    "zoom": 400,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Dieu de la lumière",
+      "Protecteur d'un combattant"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Kid Icarus",
+      "Kid Icarus: Uprising"
+    ],
+    "story": "Déesse de la lumière, Palutena guide Pit dans sa mission. Dotée de pouvoirs divins, elle protège l’humanité contre les forces obscures."
+  },
+  {
+    "id": 58,
+    "name": "Pac-Man",
+    "series": "Pac-Man",
+    "number": "55",
+    "filename": "pac_man.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 30
+    },
+    "hints": [
+      "Il mange des pastilles",
+      "Il évite des fantômes"
+    ],
+    "firstAppearance": "1980",
+    "videoGames": [
+      "Pac-Man",
+      "Pac-Man Championship Edition"
+    ],
+    "story": "Icône du jeu d’arcade, Pac-Man parcourt des labyrinthes en évitant des fantômes. Symbole intemporel du jeu vidéo, il combine nostalgie et efficacité."
+  },
+  {
+    "id": 59,
+    "name": "Daraen",
+    "series": "Fire Emblem",
+    "number": "56",
+    "filename": "daraen.png",
+    "zoom": 350,
+    "position": {
+      "top": 10,
+      "left": 50
+    },
+    "hints": [
+      "Tacticien",
+      "Il a un bouquin"
+    ],
+    "firstAppearance": "2012",
+    "videoGames": [
+      "Fire Emblem Awakening"
+    ],
+    "story": "Stratège amnésique, Robin utilise magie et tactique pour vaincre ses ennemis. Son intelligence fait de lui un pilier des batailles."
+  },
+  {
+    "id": 60,
+    "name": "Shulk",
+    "series": "Xenoblade Chronicles",
+    "number": "57",
+    "filename": "shulk.png",
+    "zoom": 400,
+    "position": {
+      "top": 20,
+      "left": 30
+    },
+    "hints": [
+      "Il porte une épée Monado",
+      "Il voit le futur"
+    ],
+    "firstAppearance": "2010",
+    "videoGames": [
+      "Xenoblade Chronicles",
+      "Xenoblade Chronicles Definitive Edition"
+    ],
+    "story": "Jeune héros maniant la Monado, Shulk peut voir l’avenir. Il combat pour protéger ses amis et comprendre le monde qui l’entoure."
+  },
+  {
+    "id": 61,
+    "name": "Bowser Jr.",
+    "acceptedNames": [
+      "Bowser Junior"
+    ],
+    "series": "Super Mario",
+    "number": "58",
+    "filename": "bowser_jr.png",
+    "zoom": 130,
+    "position": {
+      "top": 30,
+      "left": 50
+    },
+    "hints": [
+      "Son père est un combattant",
+      "Il est dans un canon pour combattre"
+    ],
+    "firstAppearance": "2002",
+    "videoGames": [
+      "Super Mario Sunshine",
+      "New Super Mario Bros."
+    ],
+    "story": "Fils de Bowser, Bowser Jr. aide son père dans ses plans de conquête. Ingénieux et déterminé, il pilote son propre engin de combat."
+  },
+  {
+    "id": 62,
+    "name": "Duo Duck Hunt",
+    "acceptedNames": [
+      "Duck Hunt"
+    ],
+    "series": "Duck Hunt",
+    "number": "59",
+    "filename": "duck_hunt.png",
+    "zoom": 100,
+    "position": {
+      "top": 50,
+      "left": 0
+    },
+    "hints": [
+      "Jeu de tir",
+      "Coin coin"
+    ],
+    "firstAppearance": "1984",
+    "videoGames": [
+      "Duck Hunt"
+    ],
+    "story": "Duo comique composé d’un chien et d’un canard, ils proviennent d’un jeu de tir emblématique de la NES. Leur style imprévisible les rend uniques."
+  },
+  {
+    "id": 63,
+    "name": "Ryu",
+    "series": "Street Fighter",
+    "number": "60",
+    "filename": "ryu.png",
+    "zoom": 400,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Maitre de l'art martial",
+      "Boules d'énergie"
+    ],
+    "firstAppearance": "1987",
+    "videoGames": [
+      "Street Fighter II",
+      "Street Fighter V",
+      "Street Fighter 6"
+    ],
+    "story": "Maître des arts martiaux, Ryu voyage à travers le monde pour perfectionner son combat. Discipliné et humble, il cherche l’équilibre entre force et maîtrise."
+  },
+  {
+    "id": 64,
+    "name": "Ken",
+    "series": "Street Fighter",
+    "number": "60ε",
+    "filename": "ken.png",
+    "zoom": 300,
+    "position": {
+      "top": 0,
+      "left": 70
+    },
+    "hints": [
+      "Maître du karaté",
+      "Il a des cheveux blonds"
+    ],
+    "firstAppearance": "1987",
+    "videoGames": [
+      "Street Fighter II",
+      "Street Fighter V",
+      "Street Fighter 6"
+    ],
+    "story": "Ken Masters est un expert en arts martiaux et rival de longue date de Ryu. Plus extraverti et flamboyant, il maîtrise le karaté Ansatsuken avec une approche offensive. Malgré son style spectaculaire, il reste profondément attaché à l’honneur et à l’amitié."
+  },
+  {
+    "id": 65,
+    "name": "Cloud",
+    "series": "Final Fantasy",
+    "number": "61",
+    "filename": "cloud.png",
+    "zoom": 350,
+    "position": {
+      "top": 0,
+      "left": 30
+    },
+    "hints": [
+      "Ex-Soldat",
+      "Il brandit l'épée Buster"
+    ],
+    "firstAppearance": "1997",
+    "videoGames": [
+      "Final Fantasy VII",
+      "Final Fantasy VII Remake"
+    ],
+    "story": "Ancien soldat de la Shinra, Cloud Strife manie une immense épée et lutte contre Sephiroth. Marqué par un passé troublé et des souvenirs confus, il cherche sa véritable identité tout en protégeant la planète contre sa destruction."
+  },
+  {
+    "id": 66,
+    "name": "Corrin",
+    "series": "Fire Emblem",
+    "number": "62",
+    "filename": "corrin.png",
+    "zoom": 400,
+    "position": {
+      "top": 0,
+      "left": 60
+    },
+    "hints": [
+      "Dragon",
+      "Il porte une épée Yato"
+    ],
+    "firstAppearance": "2015",
+    "videoGames": [
+      "Fire Emblem Fates"
+    ],
+    "story": "Prince ou princesse capable de se transformer en dragon, Corrin est déchiré entre deux royaumes en guerre. Guidé par la compassion, il tente de rétablir la paix malgré des choix difficiles."
+  },
+  {
+    "id": 67,
+    "name": "Bayonetta",
+    "series": "Bayonetta",
+    "number": "63",
+    "filename": "bayonetta.png",
+    "zoom": 400,
+    "position": {
+      "top": 5,
+      "left": 50
+    },
+    "hints": [
+      "Sorcière",
+      "Temps"
+    ],
+    "firstAppearance": "2009",
+    "videoGames": [
+      "Bayonetta",
+      "Bayonetta 2",
+      "Bayonetta 3"
+    ],
+    "story": "Sorcière de l’ombre élégante et redoutable, Bayonetta combat des anges et démons avec agilité et armes à feu. Amnésique sur son passé, elle découvre peu à peu son rôle clé dans l’équilibre du monde."
+  },
+  {
+    "id": 68,
+    "name": "Inkling",
+    "series": "Splatoon",
+    "number": "64",
+    "filename": "inkling.png",
+    "zoom": 150,
+    "position": {
+      "top": -10,
+      "left": 50
+    },
+    "hints": [
+      "Encre",
+      "Poulpe"
+    ],
+    "firstAppearance": "2015",
+    "videoGames": [
+      "Splatoon",
+      "Splatoon 2",
+      "Splatoon 3"
+    ],
+    "story": "Créatures mi-humaines mi-calamars, les Inklings s’affrontent dans des guerres de peinture colorées. Rapides et créatifs, ils utilisent l’encre pour se déplacer et dominer le terrain."
+  },
+  {
+    "id": 69,
+    "name": "Ridley",
+    "series": "Metroid",
+    "number": "65",
+    "filename": "ridley.png",
+    "zoom": 230,
+    "position": {
+      "top": 30,
+      "left": 20
+    },
+    "hints": [
+      "Dragon violet",
+      "Leader des pirates"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Metroid",
+      "Super Metroid",
+      "Metroid Other M"
+    ],
+    "story": "Chef des Pirates de l’Espace, Ridley est une créature cruelle et intelligente. Ennemi juré de Samus, il est responsable de la destruction de sa planète natale et représente une menace constante."
+  },
+  {
+    "id": 70,
+    "name": "Simon",
+    "series": "Castlevania",
+    "number": "66",
+    "filename": "simon.png",
+    "zoom": 350,
+    "position": {
+      "top": 5,
+      "left": 40
+    },
+    "hints": [
+      "Chasseur de vampires",
+      "Il a un écho"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Castlevania",
+      "Super Castlevania IV"
+    ],
+    "story": "Chasseur de vampires issu du clan Belmont, Simon affronte Dracula à l’aide de son fouet légendaire. Déterminé et courageux, il combat les forces des ténèbres sans relâche."
+  },
+  {
+    "id": 71,
+    "name": "Richter",
+    "series": "Castlevania",
+    "number": "66ε",
+    "filename": "richter.png",
+    "zoom": 350,
+    "position": {
+      "top": 10,
+      "left": 45
+    },
+    "hints": [
+      "Descendant d'un combattant",
+      "Il est un écho"
+    ],
+    "firstAppearance": "1993",
+    "videoGames": [
+      "Castlevania: Rondo of Blood",
+      "Symphony of the Night"
+    ],
+    "story": "Héritier du clan Belmont, Richter est l’un des chasseurs de vampires les plus puissants. Rapide et charismatique, il affronte Dracula et ses serviteurs pour protéger l’humanité."
+  },
+  {
+    "id": 72,
+    "name": "King K. Rool",
+    "acceptedNames": [
+      "King Rool"
+    ],
+    "series": "Donkey Kong",
+    "number": "67",
+    "filename": "king_k_rool.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Ennemi",
+      "Gros combattant"
+    ],
+    "firstAppearance": "1994",
+    "videoGames": [
+      "Donkey Kong Country",
+      "Donkey Kong 64"
+    ],
+    "story": "Roi des Kremlings, King K. Rool est l’ennemi juré de Donkey Kong. Excentrique mais dangereux, il utilise ruses et machines pour voler les bananes et dominer l’île."
+  },
+  {
+    "id": 73,
+    "name": "Marie",
+    "series": "Animal Crossing",
+    "number": "68",
+    "filename": "marie.png",
+    "zoom": 140,
+    "position": {
+      "top": 20,
+      "left": 50
+    },
+    "hints": [
+      "Chien",
+      "Mairie"
+    ],
+    "firstAppearance": "2012",
+    "videoGames": [
+      "Animal Crossing: New Leaf",
+      "New Horizons"
+    ],
+    "story": "Assistante municipale toujours souriante, Isabelle aide à gérer le village. Bienveillante et travailleuse, elle cache une surprenante ténacité en combat."
+  },
+  {
+    "id": 74,
+    "name": "Félinferno",
+    "series": "Pokémon",
+    "number": "69",
+    "filename": "félinferno.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 20
+    },
+    "hints": [
+      "Catcheur",
+      "Pokémon"
+    ],
+    "firstAppearance": "2016",
+    "videoGames": [
+      "Pokémon Soleil/Lune"
+    ],
+    "story": "Pokémon de type Feu/Ténèbres, Incineroar adopte un style de catcheur brutal. Il se nourrit de l’énergie du public et cherche à impressionner ses adversaires."
+  },
+  {
+    "id": 75,
+    "name": "Plante Piranha",
+    "acceptedNames": [
+      "Piranha"
+    ],
+    "series": "Super Mario",
+    "number": "70",
+    "filename": "plante_piranha.png",
+    "zoom": 100,
+    "position": {
+      "top": 0,
+      "left": 0
+    },
+    "hints": [
+      "Pot",
+      "Crache des boules"
+    ],
+    "firstAppearance": "1985",
+    "videoGames": [
+      "Super Mario Bros.",
+      "Super Mario Maker"
+    ],
+    "story": "Plante carnivore issue des tuyaux du Royaume Champignon, elle attaque sans prévenir. Son intégration comme combattant illustre l’aspect imprévisible de Smash."
+  },
+  {
+    "id": 76,
+    "name": "Joker",
+    "series": "Persona",
+    "number": "71ε",
+    "filename": "joker.png",
+    "zoom": 300,
+    "position": {
+      "top": 0,
+      "left": 40
+    },
+    "hints": [
+      "Voleur de coeur",
+      "Cartes"
+    ],
+    "firstAppearance": "2016",
+    "videoGames": [
+      "Persona 5",
+      "Persona 5 Royal"
+    ],
+    "story": "Lycéen rebelle menant une double vie, Joker combat dans le Metaverse avec son Persona. Stratège et charismatique, il lutte contre la corruption des adultes."
+  },
+  {
+    "id": 77,
+    "name": "Héros",
+    "series": "Dragon Quest",
+    "number": "72",
+    "filename": "héros.png",
+    "zoom": 300,
+    "position": {
+      "top": 7,
+      "left": 60
+    },
+    "hints": [
+      "épée et magie",
+      "Plusieurs personnages"
+    ],
+    "firstAppearance": "1986",
+    "videoGames": [
+      "Dragon Quest III",
+      "Dragon Quest XI"
+    ],
+    "story": "Représentant plusieurs héros de Dragon Quest, il combat monstres et démons à l’aide de magie et d’épée. Il incarne l’aventure classique du RPG japonais."
+  },
+  {
+    "id": 78,
+    "name": "Banjo et Kazooie",
+    "acceptedNames": [
+      "Banjo",
+      "Kazooie",
+      "Banjo and Kazooie"
+    ],
+    "series": "Banjo-Kazooie",
+    "number": "73",
+    "filename": "banjo_et_kazooie.png",
+    "zoom": 130,
+    "position": {
+      "top": 20,
+      "left": 20
+    },
+    "hints": [
+      "Sac",
+      "Grrr"
+    ],
+    "firstAppearance": "1998",
+    "videoGames": [
+      "Banjo-Kazooie",
+      "Banjo-Tooie"
+    ],
+    "story": "Duo composé d’un ours et d’un oiseau sarcastique, ils explorent des mondes colorés pour vaincre la sorcière Gruntilda. Leur aventure mêle humour et plateformes."
+  },
+  {
+    "id": 79,
+    "name": "Terry",
+    "series": "Fatal Fury",
+    "number": "74",
+    "filename": "terry.png",
+    "zoom": 250,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Arts martiaux",
+      "Boule d'énergie"
+    ],
+    "firstAppearance": "1991",
+    "videoGames": [
+      "Fatal Fury",
+      "The King of Fighters XV"
+    ],
+    "story": "Combattant charismatique spécialisé dans les arts martiaux, Terry Bogard parcourt le monde pour protéger les innocents. Héritier du style de combat de son père adoptif, il affronte des criminels puissants tout en gardant un esprit libre et amical."
+  },
+  {
+    "id": 80,
+    "name": "Byleth",
+    "series": "Fire Emblem",
+    "number": "75",
+    "filename": "byleth.png",
+    "zoom": 350,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "épée de feu",
+      "professeur"
+    ],
+    "firstAppearance": "2019",
+    "videoGames": [
+      "Fire Emblem: Three Houses"
+    ],
+    "story": "Professeur à l’Académie des Officiers, Byleth forme de futurs dirigeants tout en participant à une guerre majeure. Capable d’utiliser plusieurs armes légendaires, il joue un rôle central dans le destin du continent de Fódlan."
+  },
+  {
+    "id": 81,
+    "name": "Min Min",
+    "series": "ARMS",
+    "number": "76",
+    "filename": "min_min.png",
+    "zoom": 300,
+    "position": {
+      "top": 20,
+      "left": 40
+    },
+    "hints": [
+      "Bras dragon",
+      "Extensible"
+    ],
+    "firstAppearance": "2017",
+    "videoGames": [
+      "ARMS"
+    ],
+    "story": "Combattante experte du tournoi ARMS, Min Min utilise des bras extensibles pour frapper à distance. Déterminée et confiante, elle souhaite prouver sa valeur tout en aidant le restaurant familial."
+  },
+  {
+    "id": 82,
+    "name": "Steve",
+    "series": "Minecraft",
+    "number": "77",
+    "filename": "steve.png",
+    "zoom": 150,
+    "position": {
+      "top": 0,
+      "left": 100
+    },
+    "hints": [
+      "Construction",
+      "Bloc"
+    ],
+    "firstAppearance": "2011",
+    "videoGames": [
+      "Minecraft"
+    ],
+    "story": "Personnage emblématique de Minecraft, Steve explore un monde fait de blocs. Il collecte des ressources, fabrique des outils et affronte des monstres pour survivre et construire librement."
+  },
+  {
+    "id": 83,
+    "name": "Sephiroth",
+    "series": "Final Fantasy",
+    "number": "78",
+    "filename": "sephiroth.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Ennemi épéiste",
+      "Longue portée"
+    ],
+    "firstAppearance": "1997",
+    "videoGames": [
+      "Final Fantasy VII",
+      "Final Fantasy VII Remake"
+    ],
+    "story": "Ancien héros devenu antagoniste légendaire, Sephiroth cherche à détruire le monde pour renaître comme une divinité. Son immense puissance et son esprit instable font de lui l’un des ennemis les plus redoutés."
+  },
+  {
+    "id": 84,
+    "name": "Pyra / Mythra",
+    "acceptedNames": [
+      "Pyra",
+      "Mythra"
+    ],
+    "series": "Xenoblade Chronicles",
+    "number": "79-80",
+    "filename": "pyra_mythra.png",
+    "zoom": 280,
+    "position": {
+      "top": 0,
+      "left": 45
+    },
+    "hints": [
+      "Puissance et vitesse",
+      "Feu et lumière"
+    ],
+    "firstAppearance": "2017",
+    "videoGames": [
+      "Xenoblade Chronicles 2"
+    ],
+    "story": "Épéiste liée au pouvoir du feu, Pyra est une entité appelée Lame. Bienveillante et protectrice, elle cherche à comprendre son passé tout en aidant Rex dans sa quête."
+  },
+  {
+    "id": 85,
+    "name": "Kazuya",
+    "series": "Dragon Quest",
+    "number": "81",
+    "filename": "kazuya.png",
+    "zoom": 300,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Gène du démon",
+      "Torse nu"
+    ],
+    "firstAppearance": "1994",
+    "videoGames": [
+      "Tekken",
+      "Tekken 7",
+      "Tekken 8"
+    ],
+    "story": "Héritier du clan Mishima, Kazuya est consumé par la haine et le pouvoir du gène démoniaque. Maître du combat brutal, il cherche à dominer ses ennemis et son propre destin."
+  },
+  {
+    "id": 86,
+    "name": "Sora",
+    "series": "Kingdom Hearts",
+    "number": "82",
+    "filename": "sora.png",
+    "zoom": 200,
+    "position": {
+      "top": 0,
+      "left": 50
+    },
+    "hints": [
+      "Clé",
+      "Parcourt plusieurs mondes"
+    ],
+    "firstAppearance": "2002",
+    "videoGames": [
+      "Kingdom Hearts",
+      "Kingdom Hearts II",
+      "Kingdom Hearts III"
+    ],
+    "story": "Porteur de la Keyblade, Sora voyage entre différents mondes pour combattre les Ténèbres. Guidé par l’amitié et la lumière, il protège l’équilibre entre les royaumes."
+  }
+]

@@ -1,0 +1,383 @@
+.ecris-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+/* Countdown 3, 2, 1, Smash ! */
+.ecris-countdown-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 0;
+}
+
+.ecris-countdown {
+  text-align: center;
+}
+
+.ecris-countdown-value {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 800;
+  color: var(--smash-red);
+  text-shadow: 0 0 40px var(--smash-red-soft);
+  letter-spacing: 0.02em;
+  display: inline-block;
+  animation: ecris-countdown-pop 0.4s ease-out;
+}
+
+@keyframes ecris-countdown-pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ecris-card {
+  border-radius: 10px;
+  border: 1px solid var(--smash-border);
+  background: var(--smash-bg-card);
+  backdrop-filter: blur(8px);
+  margin-bottom: 24px;
+}
+
+.ecris-card .ant-typography {
+  color: var(--smash-text);
+}
+
+.ecris-card .ant-table {
+  color: var(--smash-text);
+}
+
+.ecris-card .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--smash-text-muted);
+  border-color: var(--smash-border);
+}
+
+.ecris-card .ant-table-thead > tr > th,
+.ecris-card .ant-table-tbody > tr > td {
+  padding: 10px 14px;
+}
+
+.ecris-card .ant-table-tbody > tr > td {
+  border-color: var(--smash-border);
+}
+
+.ecris-classement .ant-card-head-title {
+  color: var(--smash-text);
+}
+
+/* Boutons radio joueur : rouge au lieu de la couleur primaire */
+.ecris-radio-joueur .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: var(--smash-red) !important;
+  border-color: var(--smash-red) !important;
+  color: #fff !important;
+}
+
+.ecris-order-mode-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.ecris-order-mode-row .ant-switch-checked {
+  background: var(--smash-red) !important;
+}
+
+.ecris-order-mode-hint {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+.ecris-radio-joueur .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background: var(--smash-red-hover) !important;
+  border-color: var(--smash-red-hover) !important;
+  color: #fff !important;
+}
+
+/* Classement : thème sombre, lisible et moderne */
+.ecris-classement .ant-table-container table {
+  background: transparent !important;
+}
+
+.ecris-classement .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: var(--smash-text) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--smash-border);
+  padding: 12px 16px;
+}
+
+.ecris-classement .ant-table-tbody > tr > td,
+.ecris-classement .ant-table-tbody .ant-table-cell {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--smash-text) !important;
+  border-bottom: 1px solid var(--smash-border);
+  padding: 12px 16px;
+}
+
+.ecris-classement .ant-table-tbody > tr:hover > td,
+.ecris-classement .ant-table-tbody > tr:hover .ant-table-cell {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.ecris-classement .ant-table-tbody > tr:nth-child(even) > td,
+.ecris-classement .ant-table-tbody > tr:nth-child(even) .ant-table-cell {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.ecris-classement .ant-table-tbody > tr:nth-child(even):hover > td,
+.ecris-classement .ant-table-tbody > tr:nth-child(even):hover .ant-table-cell {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.ecris-classement .ant-card-body {
+  padding: 0;
+}
+
+.ecris-classement .ant-table {
+  background: transparent !important;
+}
+
+.ecris-classement .ant-table-placeholder {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--smash-text-muted) !important;
+  border-color: var(--smash-border);
+}
+
+.ecris-card .ant-input:focus,
+.ecris-card .ant-input:hover {
+  border-color: var(--smash-red);
+  box-shadow: 0 0 0 2px var(--smash-red-soft);
+}
+
+.ecris-resultat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.ecris-jeu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.ecris-chrono {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--smash-red);
+}
+
+.ecris-grille-wrapper {
+  margin-bottom: 24px;
+}
+
+.ecris-jeu-input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ecris-input {
+  max-width: 100%;
+}
+
+.ecris-jeu-boutons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.ecris-jeu-boutons-left {
+  flex-shrink: 0;
+}
+.ecris-jeu-boutons-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Réponses manquantes (popover après abandon) */
+.ecris-resultat .ecris-btn-manquants {
+  margin-top: 12px;
+}
+
+.ecris-manquants-popover {
+  max-width: 420px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.ecris-manquants-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 8), 1fr);
+  gap: 8px;
+}
+
+.ecris-manquants-cell {
+  aspect-ratio: 1;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid var(--smash-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.ecris-manquants-img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ecris-manquants-nom {
+  font-size: 0.5rem;
+  color: var(--smash-text-muted);
+  word-break: break-word;
+  text-align: center;
+}
+
+.ecris-manquants-label {
+  font-size: 0.6rem;
+  color: var(--smash-text);
+  font-weight: 600;
+  margin-top: 4px;
+  text-align: center;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+/* Popover Indices */
+.ecris-indices-popover {
+  min-width: 280px;
+  max-width: 360px;
+}
+
+.ecris-indice-block {
+  margin-bottom: 16px;
+}
+
+.ecris-indice-block:last-child {
+  margin-bottom: 0;
+}
+
+.ecris-indice-block .ecris-indice-desc {
+  display: block;
+  font-size: 0.8rem;
+  margin: 4px 0 2px;
+}
+
+.ecris-indice-block .ecris-indice-malus {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--smash-red) !important;
+  margin-bottom: 8px;
+}
+
+.ecris-indice-result {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.15em;
+}
+
+.ecris-indice-lettres-line {
+  margin-bottom: 12px;
+}
+
+.ecris-indice-lettres-line:last-of-type {
+  margin-bottom: 10px;
+}
+
+.ecris-indice-add-letter {
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+
+.ecris-indice-silhouette {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Indice (affiché 20 s au clic) — style rouge-orange */
+.ecris-indice-affichage {
+  margin-bottom: 12px;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 0, 18, 0.5);
+  background: linear-gradient(135deg, rgba(230, 0, 18, 0.18) 0%, rgba(255, 107, 53, 0.15) 50%, rgba(230, 0, 18, 0.12) 100%);
+  box-shadow: 0 2px 12px rgba(230, 0, 18, 0.15);
+}
+.ecris-indice-affichage-titre {
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+  background: linear-gradient(90deg, rgba(230, 0, 18, 0.5), rgba(255, 107, 53, 0.4));
+  border-bottom: 1px solid rgba(230, 0, 18, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecris-indice-affichage-titre .anticon {
+  font-size: 1rem;
+  color: #ffb347;
+}
+.ecris-indice-affichage-texte {
+  padding: 12px 14px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.ecris-indice-bouton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+}
+.ecris-indice-bouton-wrap .ecris-indice-progress {
+  margin-bottom: 0;
+}
+.ecris-page .ecris-indice-bouton-wrap .ecris-indice-progress .ant-progress-bg,
+.ecris-page .ecris-indice-bouton-wrap .ant-progress .ant-progress-bg {
+  background-color: #e60012 !important;
+}
+.ecris-page .ecris-indice-bouton-wrap button.ecris-indice-btn-disabled,
+.ecris-page .ecris-indice-bouton-wrap button.ecris-indice-btn-disabled:hover,
+.ecris-page .ecris-indice-bouton-wrap button.ecris-indice-btn-disabled:focus,
+.ecris-page .ecris-indice-bouton-wrap button.ecris-indice-btn-disabled span {
+  color: #e60012 !important;
+  border-color: rgba(230, 0, 18, 0.5) !important;
+  opacity: 1 !important;
+}

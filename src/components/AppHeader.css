@@ -1,0 +1,62 @@
+.app-header {
+  background: rgba(13, 13, 13, 0.98) !important;
+  border-bottom: 2px solid var(--smash-red);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.header-combattants-link {
+  margin-left: auto;
+}
+
+.header-combattants-link .header-combattants-btn {
+  background: transparent !important;
+  border-color: var(--smash-red);
+  color: var(--smash-red);
+}
+
+.header-combattants-link .header-combattants-btn:hover {
+  background: rgba(230, 0, 18, 0.1) !important;
+  border-color: var(--smash-red-hover);
+  color: var(--smash-red-hover);
+}
+
+.header-icon {
+  width: 28px;
+  height: auto;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(5000%) hue-rotate(350deg);
+}
+
+.header-link {
+  text-decoration: none;
+}
+
+.header-title {
+  margin: 0 !important;
+  color: var(--smash-text) !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 576px) {
+  .app-header {
+    padding: 0 16px;
+  }
+  .header-title {
+    font-size: 1rem !important;
+  }
+  .header-icon {
+    width: 22px;
+  }
+}

@@ -1,0 +1,203 @@
+.grille-personnages {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 13), 1fr);
+  gap: 6px;
+  min-height: 60px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grille-personnages > span {
+  display: contents;
+}
+
+.grille-personnages-cell-wrapper-clickable {
+  display: contents;
+  cursor: pointer;
+}
+
+.grille-personnages-cell {
+  aspect-ratio: 1;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid var(--smash-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grille-personnages-cell-vide {
+  background: rgba(15, 15, 15, 0.95);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Prochaine case à saisir (mode "Dans l'ordre") */
+.grille-personnages-cell-next {
+  box-shadow: 0 0 0 2px var(--smash-red);
+  border-color: var(--smash-red);
+}
+
+.grille-personnages-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.grille-personnages-cell img,
+.grille-personnages-img {
+  width: 100%;
+  height: 100%;
+}
+
+.grille-personnages-cell img {
+  object-fit: cover;
+}
+
+.grille-personnages-img {
+  background-size: 100%;
+  background-position: 0% 0%;
+}
+
+.grille-personnages-nom {
+  font-size: 0.55rem;
+  color: var(--smash-text-muted);
+  text-align: center;
+  padding: 2px;
+  word-break: break-word;
+}
+
+/* Clignotement 2s : vert (trouvé), orange (déjà trouvé), rouge (silhouette révélée) */
+.grille-personnages-cell-blink-green {
+  animation: grille-blink-green 2s ease-in-out;
+}
+
+.grille-personnages-cell-blink-orange {
+  animation: grille-blink-orange 2s ease-in-out;
+}
+
+.grille-personnages-cell-blink-red {
+  animation: grille-blink-red 2s ease-in-out;
+}
+
+@keyframes grille-blink-green {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  15% { box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.9); }
+  30% { box-shadow: 0 0 0 0 transparent; }
+  45% { box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.9); }
+  60% { box-shadow: 0 0 0 0 transparent; }
+  75% { box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.7); }
+}
+
+@keyframes grille-blink-orange {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  15% { box-shadow: 0 0 0 4px rgba(250, 173, 20, 0.9); }
+  30% { box-shadow: 0 0 0 0 transparent; }
+  45% { box-shadow: 0 0 0 4px rgba(250, 173, 20, 0.9); }
+  60% { box-shadow: 0 0 0 0 transparent; }
+  75% { box-shadow: 0 0 0 4px rgba(250, 173, 20, 0.7); }
+}
+
+@keyframes grille-blink-red {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  15% { box-shadow: 0 0 0 4px rgba(230, 0, 18, 0.9); }
+  30% { box-shadow: 0 0 0 0 transparent; }
+  45% { box-shadow: 0 0 0 4px rgba(230, 0, 18, 0.9); }
+  60% { box-shadow: 0 0 0 0 transparent; }
+  75% { box-shadow: 0 0 0 4px rgba(230, 0, 18, 0.7); }
+}
+
+.grille-personnages-cell-clickable {
+  cursor: pointer;
+}
+
+.grille-personnages-cell-clickable:hover {
+  border-color: var(--smash-red);
+  box-shadow: 0 0 0 1px var(--smash-red-soft);
+}
+
+/* Détail personnage (contenu réutilisé dans le panneau HomePage) */
+.grille-personnage-popover {
+  min-width: 260px;
+  max-width: 320px;
+  color: #fff !important;
+}
+
+.grille-personnage-popover .ant-typography {
+  color: #fff !important;
+}
+
+.grille-personnage-popover-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.grille-personnage-popover-header .grille-personnage-popover-nom {
+  color: #fff !important;
+  font-size: 1rem;
+}
+
+.grille-personnage-popover-header .ant-typography-secondary {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.grille-personnage-popover-serie {
+  display: block;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.85rem;
+}
+
+.grille-personnage-popover-original {
+  margin-bottom: 12px;
+}
+
+.grille-personnage-popover-img-original {
+  width: 100%;
+  max-width: 200px;
+  height: 160px;
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.grille-personnage-popover-couleurs-label,
+.grille-personnage-popover-couleurs-empty {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.grille-personnage-popover-couleurs-empty {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.grille-personnage-popover-couleurs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 6px;
+}
+
+.grille-personnage-popover-couleurs-item {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .grille-personnages {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}

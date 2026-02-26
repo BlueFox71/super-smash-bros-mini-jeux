@@ -1,0 +1,306 @@
+.home-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Bloc hero : image qui défile, toute la largeur. */
+.home-hero {
+  position: relative;
+  width: 100vw;
+  aspect-ratio: 1920 / 356;
+  min-height: 280px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+/* Bandeau défilant infini (gauche → droite) */
+.home-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.home-hero-bg-strip {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: hero-bg-scroll 45s linear infinite;
+}
+
+.home-hero-bg-tile {
+  flex: 0 0 50%;
+  height: 100%;
+  background-color: var(--smash-bg);
+  background-image: url('../data/assets/background.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes hero-bg-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13, 13, 13, 0.3), rgba(13, 13, 13, 0.3));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-hero-inner {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  z-index: 2;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero .hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section des boutons de jeux : en dessous de l’image */
+.home-games-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 48px;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 56px 24px 48px;
+}
+
+.hero-section .hero-title,
+.hero-section .hero-subtitle {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  color: var(--smash-text) !important;
+  font-weight: 800;
+  margin-bottom: 16px !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  color: var(--smash-text-muted);
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.home-games-section .games-grid {
+  margin: 0;
+}
+
+.game-card {
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--smash-border);
+  background: var(--smash-bg-card);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.game-card .ant-card-body {
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background 0.35s ease, color 0.25s ease;
+}
+
+/* Hover : arrière-plan = image du jeu + overlay pour lisibilité */
+.game-card--images:hover:not(.game-card-disabled) .ant-card-body {
+  background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.82), rgba(13, 13, 13, 0.75)), url('../data/assets/jeu_images.jpg');
+}
+
+.game-card--ecris-les-tous:hover:not(.game-card-disabled) .ant-card-body {
+  background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.82), rgba(13, 13, 13, 0.75)), url('../data/assets/ecris_les_tous.jpg');
+}
+
+.game-card--quiz:hover:not(.game-card-disabled) .ant-card-body {
+  background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.82), rgba(13, 13, 13, 0.75)), url('../data/assets/quiz.png');
+}
+
+.game-card:hover:not(.game-card-disabled) {
+  border-color: var(--smash-red);
+  box-shadow: 0 6px 20px var(--smash-red-soft);
+}
+
+.game-card--images:hover:not(.game-card-disabled) .ant-typography,
+.game-card--ecris-les-tous:hover:not(.game-card-disabled) .ant-typography,
+.game-card--quiz:hover:not(.game-card-disabled) .ant-typography {
+  color: var(--smash-text) !important;
+}
+
+.game-card--images:hover:not(.game-card-disabled) .game-description,
+.game-card--ecris-les-tous:hover:not(.game-card-disabled) .game-description,
+.game-card--quiz:hover:not(.game-card-disabled) .game-description {
+  color: var(--smash-text-muted) !important;
+}
+
+.game-card-content {
+  text-align: center;
+  align-items: center;
+}
+
+.game-card-content .ant-space-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-card-title {
+  margin-bottom: 0 !important;
+  text-align: center;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
+
+@media (min-width: 768px) {
+  .game-card-title {
+    font-size: 2rem !important;
+  }
+}
+
+.game-icon {
+  font-size: 48px;
+  color: var(--smash-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-card .ant-typography {
+  color: var(--smash-text);
+}
+
+.game-description {
+  color: var(--smash-text-muted) !important;
+  min-height: 48px;
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+
+.game-card-disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.coming-soon {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--smash-red-soft);
+  color: var(--smash-red);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.home-grille-section {
+  padding-top: 24px;
+  border-top: 1px solid var(--smash-border);
+}
+
+.home-grille-section--with-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.home-grille-detail-panel {
+  position: relative;
+  flex-shrink: 0;
+  width: 280px;
+  min-width: 260px;
+  padding: 16px;
+  padding-top: 40px;
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid var(--smash-border);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.home-grille-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--smash-text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.home-grille-detail-close:hover {
+  background: var(--smash-red-soft);
+  color: var(--smash-red);
+}
+
+.home-grille-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 24px 16px;
+  }
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+  .home-games-section {
+    padding: 32px 16px 48px;
+  }
+
+  .home-grille-section--with-detail {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .home-grille-detail-panel {
+    width: 100%;
+    min-width: 0;
+  }
+}

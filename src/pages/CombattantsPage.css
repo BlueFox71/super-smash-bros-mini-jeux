@@ -1,0 +1,78 @@
+.combattants-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+
+.combattants-grille-section {
+  border-top: 1px solid var(--smash-border);
+  padding-top: 24px;
+}
+
+.combattants-grille-section--with-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.combattants-detail-panel {
+  position: relative;
+  flex-shrink: 0;
+  width: 280px;
+  min-width: 260px;
+  padding: 16px;
+  padding-top: 40px;
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid var(--smash-border);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.combattants-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--smash-text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.combattants-detail-close:hover {
+  background: var(--smash-red-soft);
+  color: var(--smash-red);
+}
+
+.combattants-grille-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .combattants-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .combattants-grille-section--with-detail {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .combattants-detail-panel {
+    width: 100%;
+    min-width: 0;
+  }
+}
