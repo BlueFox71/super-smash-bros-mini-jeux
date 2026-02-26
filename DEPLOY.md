@@ -10,9 +10,9 @@
 
 À chaque **push sur `main`** (ou `master`), le workflow se lance et déploie le site.
 
-- L’URL sera : **`https://<ton-username>.github.io/supersmash-bros-games/`**
+- L’URL sera : **`https://bluefox71.github.io/super-smash-bros-mini-jeux/`**
 - Le premier déploiement peut prendre 1 à 2 minutes.
 
 ## 3. Si le nom du dépôt est différent
 
-Si ton dépôt ne s’appelle pas exactement `supersmash-bros-games`, modifie dans **`vite.config.js`** la variable `repoName` pour qu’elle corresponde au nom du dépôt.
+Si ton dépôt a un autre nom, modifie dans **`vite.config.js`** la variable `repoName` pour qu’elle corresponde au nom du dépôt.
