@@ -13,7 +13,7 @@ const CombattantsPage = lazy(() => import('./pages/CombattantsPage'))
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <HideHeaderProvider>
         <Suspense fallback={<PageLoader message="Chargement de la page..." />}>
           <Routes>
