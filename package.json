@@ -1,13 +1,17 @@
 {
   "name": "supersmash-bros-games",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:desktop": "vite build --mode desktop",
     "preview": "vite preview",
-    "server": "node server.cjs"
+    "server": "node server.cjs",
+    "tauri": "tauri",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build --no-bundle"
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
@@ -17,6 +21,7 @@
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4",
     "@vitejs/plugin-react": "^4.3.3",
     "vite": "^5.4.10"
   }

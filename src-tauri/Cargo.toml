@@ -1,0 +1,21 @@
+[package]
+name = "mini-jeux-smash"
+version = "1.0.0"
+description = "Mini-jeux autour de Super Smash Bros. Ultimate, entièrement hors ligne"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+# L'exe est distribué tel quel par Le Grenier : il porte déjà 51 Mo d'images, donc
+# autant ne pas y ajouter de binaire inutilement gros.
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

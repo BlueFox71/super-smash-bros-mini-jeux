@@ -6,6 +6,11 @@ dist
 dist-ssr
 *.local
 
+# Build Rust de la coquille Tauri (des Go de dépendances compilées)
+src-tauri/target
+# Source jetable des icônes, régénérable par `npx tauri icon`
+src-tauri/icon-source.png
+
 # Editor
 .vscode/*
 !.vscode/extensions.json
