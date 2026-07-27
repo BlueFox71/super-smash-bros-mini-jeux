@@ -73,13 +73,6 @@
   color: var(--smash-text);
 }
 
-/* Boutons radio joueur : rouge au lieu de la couleur primaire */
-.ecris-radio-joueur .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-  background: var(--smash-red) !important;
-  border-color: var(--smash-red) !important;
-  color: #fff !important;
-}
-
 .ecris-order-mode-row {
   display: flex;
   align-items: center;
@@ -96,12 +89,6 @@
   font-size: 0.85rem;
   margin-bottom: 16px;
 }
-.ecris-radio-joueur .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background: var(--smash-red-hover) !important;
-  border-color: var(--smash-red-hover) !important;
-  color: #fff !important;
-}
-
 /* Classement : thème sombre, lisible et moderne */
 .ecris-classement .ant-table-container table {
   background: transparent !important;

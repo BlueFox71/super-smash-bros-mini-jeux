@@ -1,11 +1,13 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Typography, Card, Button, Space, Input, Radio, message, Table, Popover, Modal, Progress, Switch } from 'antd'
+import { Typography, Card, Button, Space, Input, message, Table, Popover, Modal, Progress, Switch } from 'antd'
 import { EditOutlined, DeleteOutlined, BulbOutlined } from '@ant-design/icons'
 import { getCharacters, getCharactersByIdOrder } from '../data'
 import { isAnswerCorrect } from '../utils/reponseUtils'
 import { addScore, getRanking, scorePercentage, deleteScore, updateScore, formatScoreDate } from '../utils/ecrisLesTousStorage'
+import { getJoueurActuel } from '../utils/joueursStorage'
 import { useHideHeader } from '../context/HideHeaderContext'
+import ChoixPseudo from '../components/ChoixPseudo'
 import CharactersGrid from '../components/GrillePersonnages'
 import GameIntroCard from '../components/GameIntroCard'
 import GameResultCard from '../components/GameResultCard'
@@ -14,7 +16,6 @@ import './EcrisLesTousPage.css'
 
 const { Title, Text } = Typography
 
-const JOUEURS = ['Jules', 'Alexis', 'Invité']
 const TOTAL = getCharacters().length
 
 const characterImageModules = import.meta.glob('../data/characters/*.png', {
@@ -55,7 +56,7 @@ export default function EcrisLesTousPage() {
   const [hideHeader, setHideHeader] = useHideHeader()
   const [step, setStep] = useState('intro') // intro | countdown | jeu | fin
   const [countdown, setCountdown] = useState(null) // 3 | 2 | 1 | 'smash' | null
-  const [player, setPlayer] = useState('Jules')
+  const [player, setPlayer] = useState(getJoueurActuel)
   const [foundIds, setFoundIds] = useState(new Set())
   const [answer, setAnswer] = useState('')
   const [timeSeconds, setTimeSeconds] = useState(0)
@@ -357,22 +358,7 @@ export default function EcrisLesTousPage() {
           onPrimaryClick={startGame}
           cardClassName="ecris-card"
         >
-          <Text strong block style={{ marginBottom: 8 }}>
-            Choisis ton pseudo :
-          </Text>
-          <Radio.Group
-            className="ecris-radio-joueur"
-            optionType="button"
-            value={player}
-            onChange={(e) => setPlayer(e.target.value)}
-            style={{ marginBottom: 16 }}
-          >
-            {JOUEURS.map((j) => (
-              <Radio.Button key={j} value={j}>
-                {j}
-              </Radio.Button>
-            ))}
-          </Radio.Group>
+          <ChoixPseudo value={player} onChange={setPlayer} style={{ marginBottom: 16 }} />
           <div className="ecris-order-mode-row">
             <Text strong>Dans l'ordre</Text>
             <Switch checked={orderMode} onChange={setOrderMode} aria-label="Mode Dans l'ordre" />

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Typography, Card, Button, Radio, Empty } from 'antd'
+import { Typography, Card, Button, Empty } from 'antd'
 import {
   QuestionCircleOutlined,
   CheckSquareOutlined,
@@ -16,11 +16,11 @@ import {
 } from '@ant-design/icons'
 import { getQuestionById } from '../data'
 import { getAnsweredIds } from '../utils/quizStorage'
+import { getJoueurActuel } from '../utils/joueursStorage'
+import ChoixPseudo from '../components/ChoixPseudo'
 import './QuizHistoriquePage.css'
 
 const { Title, Text } = Typography
-
-const JOUEURS = ['Jules', 'Alexis', 'Invité']
 
 export const TYPE_CONFIG = {
   multiple_choice: { label: 'QCM', icon: <QuestionCircleOutlined /> },
@@ -49,7 +49,7 @@ function getDifficultyLabel(difficulty) {
 
 export default function QuizHistoriquePage() {
   const navigate = useNavigate()
-  const [player, setPlayer] = useState('Jules')
+  const [player, setPlayer] = useState(getJoueurActuel)
 
   const answeredIds = useMemo(() => getAnsweredIds(player), [player])
   const historyItems = useMemo(() => {
@@ -72,20 +72,7 @@ export default function QuizHistoriquePage() {
           Choisis un joueur pour afficher les questions déjà répondues.
         </Text>
         <div className="quiz-historique-joueur">
-          <Text strong style={{ marginRight: 12 }}>
-            Joueur :
-          </Text>
-          <Radio.Group
-            optionType="button"
-            value={player}
-            onChange={(e) => setPlayer(e.target.value)}
-          >
-            {JOUEURS.map((j) => (
-              <Radio.Button key={j} value={j}>
-                {j}
-              </Radio.Button>
-            ))}
-          </Radio.Group>
+          <ChoixPseudo value={player} onChange={setPlayer} label="Joueur :" inline />
         </div>
 
         {historyItems.length === 0 ? (

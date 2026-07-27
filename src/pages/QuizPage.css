@@ -74,11 +74,6 @@
   color: var(--smash-text);
 }
 
-.quiz-radio-joueur,
-.quiz-radio-nb {
-  margin-bottom: 24px;
-}
-
 .quiz-radio-nb {
   margin-bottom: 0;
 }

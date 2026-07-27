@@ -1,32 +1,6 @@
 const STORAGE_KEY = 'smash_quiz_answered'
-const LAST_PLAYER_KEY = 'smash_quiz_last_player'
 
-/**
- * Retourne le dernier pseudo utilisé (pour pré-remplir l'intro).
- * @returns {string}
- */
-export function getLastPlayer() {
-  try {
-    const name = localStorage.getItem(LAST_PLAYER_KEY)
-    return typeof name === 'string' && name.trim() ? name.trim() : ''
-  } catch {
-    return ''
-  }
-}
-
-/**
- * Enregistre le dernier pseudo utilisé.
- * @param {string} playerName
- */
-export function setLastPlayer(playerName) {
-  try {
-    if (typeof playerName === 'string' && playerName.trim()) {
-      localStorage.setItem(LAST_PLAYER_KEY, playerName.trim())
-    }
-  } catch {
-    // ignore
-  }
-}
+// Le pseudo est désormais géré globalement dans utils/joueursStorage.js
 
 /**
  * Retourne les IDs des questions déjà répondues pour un joueur.

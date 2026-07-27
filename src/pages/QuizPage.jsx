@@ -13,7 +13,9 @@ import {
   CloseOutlined,
 } from '@ant-design/icons'
 import { getRandomQuizQuestions, getCharactersByNumberOrder } from '../data'
-import { getAnsweredIds, addAnsweredId, resetAnsweredIds, getLastPlayer, setLastPlayer } from '../utils/quizStorage'
+import { getAnsweredIds, addAnsweredId, resetAnsweredIds } from '../utils/quizStorage'
+import { getJoueurActuel } from '../utils/joueursStorage'
+import ChoixPseudo from '../components/ChoixPseudo'
 import GameIntroCard from '../components/GameIntroCard'
 import GameResultCard from '../components/GameResultCard'
 import PageLoader from '../components/PageLoader'
@@ -23,7 +25,6 @@ import { DIFFICULTY_CONFIG, TYPE_CONFIG } from './QuizHistoriquePage'
 
 const { Title, Text } = Typography
 
-const JOUEURS = ['Jules', 'Alexis', 'Invité']
 const NB_QUESTIONS_OPTIONS = [5, 10, 15]
 
 function getTypeConfig(type) {
@@ -37,10 +38,7 @@ function getDifficultyConfig(difficulty) {
 export default function QuizPage() {
   const navigate = useNavigate()
   const [step, setStep] = useState('intro') // intro | jeu | fin
-  const [player, setPlayer] = useState(() => {
-    const last = getLastPlayer()
-    return JOUEURS.includes(last) ? last : 'Jules'
-  })
+  const [player, setPlayer] = useState(getJoueurActuel)
   const [nbQuestions, setNbQuestions] = useState(10)
   const [questions, setQuestions] = useState([])
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -103,26 +101,7 @@ export default function QuizPage() {
             onPrimaryClick={startGame}
             cardClassName="quiz-card"
           >
-            <Text strong block style={{ marginBottom: 8 }}>
-              Choisis ton pseudo :
-            </Text>
-            <Radio.Group
-              className="quiz-radio-joueur"
-              optionType="button"
-              value={player}
-              onChange={(e) => {
-                const v = e.target.value
-                setPlayer(v)
-                setLastPlayer(v)
-              }}
-              style={{ marginBottom: 24 }}
-            >
-              {JOUEURS.map((j) => (
-                <Radio.Button key={j} value={j}>
-                  {j}
-                </Radio.Button>
-              ))}
-            </Radio.Group>
+            <ChoixPseudo value={player} onChange={setPlayer} style={{ marginBottom: 24 }} />
             <Text strong block style={{ marginBottom: 8 }}>
               Nombre de questions :
             </Text>

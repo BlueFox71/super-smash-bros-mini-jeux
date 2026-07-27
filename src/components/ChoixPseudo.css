@@ -1,0 +1,51 @@
+.choix-pseudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.choix-pseudo-inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.choix-pseudo-label {
+  margin-bottom: 8px;
+}
+
+.choix-pseudo-inline .choix-pseudo-label {
+  margin-bottom: 0;
+}
+
+.choix-pseudo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Pseudo sélectionné : rouge Smash au lieu de la couleur primaire */
+.choix-pseudo .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: var(--smash-red) !important;
+  border-color: var(--smash-red) !important;
+  color: #fff !important;
+}
+
+.choix-pseudo .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background: var(--smash-red-hover) !important;
+  border-color: var(--smash-red-hover) !important;
+  color: #fff !important;
+}
+
+.choix-pseudo-add.ant-btn {
+  border-color: var(--smash-border);
+}
+
+.choix-pseudo-add.ant-btn:hover {
+  color: var(--smash-red-hover) !important;
+  border-color: var(--smash-red-hover) !important;
+}

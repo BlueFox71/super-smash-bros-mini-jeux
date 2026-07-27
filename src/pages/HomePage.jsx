@@ -16,7 +16,7 @@ const GAMES = [
   {
     key: 'ecris-les-tous',
     title: 'Écris-les tous !',
-    description: 'Saisis le nom de tous les personnages. Chrono et classement par joueur (Jules, Alexis, Invité).',
+    description: 'Saisis le nom de tous les personnages. Chrono et classement par joueur.',
     icon: <EditOutlined />,
     available: true,
   },
