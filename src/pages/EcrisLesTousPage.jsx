@@ -18,7 +18,7 @@ const { Title, Text } = Typography
 
 const TOTAL = getCharacters().length
 
-const characterImageModules = import.meta.glob('../data/characters/*.png', {
+const characterImageModules = import.meta.glob('../data/characters/*.webp', {
   query: '?url',
   import: 'default',
   eager: true,

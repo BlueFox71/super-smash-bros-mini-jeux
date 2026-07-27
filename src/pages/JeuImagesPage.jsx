@@ -18,7 +18,7 @@ const GUESSPIXEL_DECREMENT = 8
 const GUESSPIXEL_MIN = 8
 
 // Images depuis le dossier characters (filename)
-const characterImageModules = import.meta.glob('../data/characters/*.png', {
+const characterImageModules = import.meta.glob('../data/characters/*.webp', {
   query: '?url',
   import: 'default',
   eager: true,
@@ -29,8 +29,8 @@ const getImageUrlCharacters = (filename) => {
   return key ? characterImageModules[key] : null
 }
 
-// Images variantes depuis characters/couleurs (ex: "mario_7.png")
-const variantImageModules = import.meta.glob('../data/characters/couleurs/*.png', {
+// Images variantes depuis characters/couleurs (ex: "mario_7.webp")
+const variantImageModules = import.meta.glob('../data/characters/couleurs/*.webp', {
   query: '?url',
   import: 'default',
   eager: true,
@@ -40,7 +40,7 @@ const variantUrlsByBase = (() => {
   const map = {}
   Object.keys(variantImageModules).forEach((key) => {
     const name = (key.replace(/\\/g, '/').split('/').pop() || '')
-    const match = name.match(/^(.+)_(\d+)\.png$/i)
+    const match = name.match(/^(.+)_(\d+)\.webp$/i)
     if (match) {
       const base = match[1].toLowerCase()
       const num = parseInt(match[2], 10)
@@ -52,7 +52,7 @@ const variantUrlsByBase = (() => {
 })()
 const getVariantImageUrl = (baseFromFilename, variantNum) => {
   if (!baseFromFilename) return null
-  const base = baseFromFilename.replace(/\.png$/i, '').toLowerCase()
+  const base = baseFromFilename.replace(/\.webp$/i, '').toLowerCase()
   const variants = variantUrlsByBase[base]
   return variants?.[variantNum] ?? null
 }
@@ -60,14 +60,14 @@ const getVariantImageUrl = (baseFromFilename, variantNum) => {
 const getCharactersWithVariants = () => {
   const withImage = getCharactersWithImage()
   return withImage.filter((p) => {
-    const base = (p.filename || '').replace(/\.png$/i, '').toLowerCase()
+    const base = (p.filename || '').replace(/\.webp$/i, '').toLowerCase()
     const v = variantUrlsByBase[base]
     return v && Object.keys(v).length >= 1
   })
 }
 /** Retourne la liste des numéros de variantes dispo (1–7) pour un base name, triés. */
 const getAvailableVariantNums = (baseFromFilename) => {
-  const base = baseFromFilename.replace(/\.png$/i, '').toLowerCase()
+  const base = baseFromFilename.replace(/\.webp$/i, '').toLowerCase()
   const variants = variantUrlsByBase[base]
   if (!variants || Object.keys(variants).length === 0) return []
   return Object.keys(variants)
@@ -240,9 +240,9 @@ export default function JeuImagesPage() {
     message.info(`C'était : ${question.name}.`)
   }
 
-  const sampleFilename = getCharacters()[0]?.filename || 'mario.png'
+  const sampleFilename = getCharacters()[0]?.filename || 'mario.webp'
   const sampleImageUrl = variantMode
-    ? (getVariantImageUrl('mario.png', 7) || getImageUrlCharacters('mario.png'))
+    ? (getVariantImageUrl('mario.webp', 7) || getImageUrlCharacters('mario.webp'))
     : getImageUrlCharacters(sampleFilename)
 
   const modifierPreview = (

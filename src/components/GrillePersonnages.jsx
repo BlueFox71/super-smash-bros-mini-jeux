@@ -4,13 +4,13 @@ import './GrillePersonnages.css'
 const { Text } = Typography
 const COLS = 13
 
-const characterImageModules = import.meta.glob('../data/characters/*.png', {
+const characterImageModules = import.meta.glob('../data/characters/*.webp', {
   query: '?url',
   import: 'default',
   eager: true,
 })
 
-const variantImageModules = import.meta.glob('../data/characters/couleurs/*.png', {
+const variantImageModules = import.meta.glob('../data/characters/couleurs/*.webp', {
   query: '?url',
   import: 'default',
   eager: true,
@@ -26,7 +26,7 @@ const variantUrlsByBase = (() => {
   const map = {}
   Object.keys(variantImageModules).forEach((key) => {
     const filename = (key.replace(/\\/g, '/').split('/').pop() || '')
-    const match = filename.match(/^(.+)_(\d+)\.png$/i)
+    const match = filename.match(/^(.+)_(\d+)\.webp$/i)
     if (match) {
       const base = match[1].toLowerCase()
       if (!map[base]) map[base] = []
@@ -38,7 +38,7 @@ const variantUrlsByBase = (() => {
 
 const getVariantUrls = (filename) => {
   if (!filename) return []
-  const base = filename.replace(/\.png$/i, '').toLowerCase()
+  const base = filename.replace(/\.webp$/i, '').toLowerCase()
   return variantUrlsByBase[base] || []
 }
 
