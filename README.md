@@ -15,7 +15,7 @@ npm install
 npm run dev
 ```
 
-Ouvre [http://localhost:5173](http://localhost:5173) dans le navigateur.
+Ouvre [http://localhost:5190](http://localhost:5190) dans le navigateur.
 
 ## Structure du projet
 
