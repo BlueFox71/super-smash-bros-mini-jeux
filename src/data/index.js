@@ -47,20 +47,32 @@ export const getCharactersWithImage = () =>
 
 /** Retourne n personnages aléatoires (sans doublon) */
 export const getRandomCharacters = (n = 1) => {
-  const shuffled = [...characters].sort(() => Math.random() - 0.5)
+  const shuffled = shuffleArray(characters)
   return n === 1 ? shuffled[0] : shuffled.slice(0, n)
 }
 
 /** Retourne n personnages avec image aléatoires (ordre aléatoire) */
 export const getRandomCharactersWithImage = (n = 1) => {
-  const withImage = getCharactersWithImage()
-  const shuffled = [...withImage].sort(() => Math.random() - 0.5)
+  const shuffled = shuffleArray(getCharactersWithImage())
   return n === 1 ? shuffled[0] : shuffled.slice(0, n)
 }
 
 /** Personnages avec image, triés par numéro */
 export const getCharactersWithImageByNumberOrder = () =>
   [...getCharactersWithImage()].sort((a, b) => numberOrderKey(a.number) - numberOrderKey(b.number))
+
+/**
+ * Personnages dont l'année de première apparition est exploitable.
+ *
+ * Une seule fiche en est dépourvue (Entraîneuse Wii Fit, dont `firstAppearance`,
+ * `story` et `videoGames` sont vides) : elle est écartée plutôt que de produire
+ * un duel sans réponse dans « Le plus ancien ».
+ * @returns {Array<Object & { annee: number }>}
+ */
+export const getCharactersWithYear = () =>
+  characters
+    .filter((p) => /^\d{4}$/.test(String(p.firstAppearance ?? '')))
+    .map((p) => ({ ...p, annee: parseInt(p.firstAppearance, 10) }))
 
 /** Questions du quiz (avec options et correct_option) */
 export { questions }
@@ -72,8 +84,15 @@ export const getQuestionById = (id) => questions.find((q) => q.id === id)
 export const getQuizQuestions = () =>
   questions.filter((q) => Array.isArray(q.options) && q.options.length > 0 && typeof q.correct_option === 'number')
 
-/** Mélange Fisher-Yates */
-function shuffleArray(arr) {
+/**
+ * Mélange Fisher-Yates.
+ *
+ * À préférer à `sort(() => Math.random() - 0.5)` : ce dernier n'est pas un
+ * mélange uniforme (le comparateur est incohérent, donc le résultat dépend de
+ * l'algorithme de tri du moteur et laisse les éléments près de leur position
+ * d'origine), ce qui faisait ressortir les mêmes premiers personnages.
+ */
+export function shuffleArray(arr) {
   const out = [...arr]
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -83,14 +102,32 @@ function shuffleArray(arr) {
 }
 
 /**
- * Retourne n questions de quiz aléatoires.
+ * Redistribue les options d'une question et réaligne `correct_option`.
+ *
+ * Sans ça, le quiz est cassable sans rien connaître : dans questions.json la
+ * bonne réponse est en première position pour environ deux tiers des questions.
+ * Répondre systématiquement « A » suffisait à dépasser 60 % de réussite, très
+ * loin des 25 % attendus d'un tirage au hasard.
+ */
+function melangerOptions(question) {
+  // Nouvel ordre exprimé en anciens indices : `ordre[k]` est l'option à placer en k.
+  const ordre = shuffleArray(question.options.map((_, i) => i))
+  return {
+    ...question,
+    options: ordre.map((i) => question.options[i]),
+    correct_option: ordre.indexOf(question.correct_option),
+  }
+}
+
+/**
+ * Retourne n questions de quiz aléatoires, options redistribuées.
  * @param {number} n - Nombre de questions
  * @param {number[]} [excludeIds=[]] - IDs à exclure (déjà répondues)
  */
 export const getRandomQuizQuestions = (n, excludeIds = []) => {
   const excludeSet = new Set(excludeIds)
   const usable = getQuizQuestions().filter((q) => !excludeSet.has(q.id))
-  return shuffleArray(usable).slice(0, n)
+  return shuffleArray(usable).slice(0, n).map(melangerOptions)
 }
 
 export default characters

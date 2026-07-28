@@ -17,6 +17,8 @@ const JeuImagesPage = lazy(() => import('./pages/JeuImagesPage'))
 const EcrisLesTousPage = lazy(() => import('./pages/EcrisLesTousPage'))
 const QuizPage = lazy(() => import('./pages/QuizPage'))
 const QuizHistoriquePage = lazy(() => import('./pages/QuizHistoriquePage'))
+const IntrusPage = lazy(() => import('./pages/IntrusPage'))
+const PlusAncienPage = lazy(() => import('./pages/PlusAncienPage'))
 const CombattantsPage = lazy(() => import('./pages/CombattantsPage'))
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
               <Route path="ecris-les-tous" element={<EcrisLesTousPage />} />
               <Route path="quiz" element={<QuizPage />} />
               <Route path="quiz/historique" element={<QuizHistoriquePage />} />
+              <Route path="intrus" element={<IntrusPage />} />
+              <Route path="le-plus-ancien" element={<PlusAncienPage />} />
               <Route path="combattants" element={<CombattantsPage />} />
             </Route>
           </Routes>

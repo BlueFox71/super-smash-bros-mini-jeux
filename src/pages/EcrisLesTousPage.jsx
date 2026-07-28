@@ -1,14 +1,16 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Typography, Card, Button, Space, Input, message, Table, Popover, Modal, Progress, Switch } from 'antd'
+import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
+import { Typography, Card, Button, Space, Input, message, Table, Modal, Progress, Radio } from 'antd'
 import { EditOutlined, DeleteOutlined, BulbOutlined } from '@ant-design/icons'
 import { getCharacters, getCharactersByIdOrder } from '../data'
+import { urlMiniature } from '../data/images'
 import { isAnswerCorrect } from '../utils/reponseUtils'
 import { addScore, getRanking, scorePercentage, deleteScore, updateScore, formatScoreDate } from '../utils/ecrisLesTousStorage'
 import { getJoueurActuel } from '../utils/joueursStorage'
 import { useHideHeader } from '../context/HideHeaderContext'
 import ChoixPseudo from '../components/ChoixPseudo'
 import CharactersGrid from '../components/GrillePersonnages'
+import EcrisCriteresJeu from '../components/EcrisCriteresJeu'
+import EcrisJaugeJeu from '../components/EcrisJaugeJeu'
 import GameIntroCard from '../components/GameIntroCard'
 import GameResultCard from '../components/GameResultCard'
 import PageLoader from '../components/PageLoader'
@@ -17,17 +19,6 @@ import './EcrisLesTousPage.css'
 const { Title, Text } = Typography
 
 const TOTAL = getCharacters().length
-
-const characterImageModules = import.meta.glob('../data/characters/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-const getImageUrlCharacters = (filename) => {
-  if (!filename) return null
-  const key = Object.keys(characterImageModules).find((k) => k.endsWith('/' + filename))
-  return key ? characterImageModules[key] : null
-}
 
 function formatTime(seconds) {
   const m = Math.floor(seconds / 60)
@@ -42,17 +33,50 @@ const INDICE_COOLDOWN_SEC = 60
 const INDICE_DELAI_ACTIVATION_ORDER_SEC = 30  
 const INDICE_COOLDOWN_ORDER_SEC = 15
 const ORDER_MODE_STORAGE_KEY = 'ecrisLesTous_orderMode'
+const VARIANT_STORAGE_KEY = 'ecrisLesTous_variant'
 
-function getInitialOrderMode() {
+/**
+ * Les quatre façons de jouer.
+ *
+ * « libre » et « ordre » sont les deux modes historiques, portés par cette page.
+ * « criteres » et « jauge » ont leur propre boucle de jeu et leur propre
+ * classement : cette page ne leur sert que d'écran d'accueil.
+ */
+const VARIANTS = [
+  {
+    cle: 'libre',
+    libelle: 'Libre',
+    description: `Cite les ${TOTAL} combattants dans l'ordre que tu veux, au chrono.`,
+  },
+  {
+    cle: 'ordre',
+    libelle: 'Dans l\'ordre',
+    description: 'Même chose, mais strictement dans l\'ordre des numéros : rien d\'autre n\'est accepté.',
+  },
+  {
+    cle: 'criteres',
+    libelle: 'Par critère',
+    description: '15 à 20 consignes tirées au hasard, 1 à 3 combattants à citer pour chacune. Un critère que tu passes revient à la fin, et un combattant ne sert qu\'une fois.',
+  },
+  {
+    cle: 'jauge',
+    libelle: 'Jauge',
+    description: 'Dans l\'ordre, mais citer hors de l\'ordre est accepté contre des points. La partie s\'arrête quand la jauge de 100 tombe à zéro.',
+  },
+]
+
+function getInitialVariant() {
   try {
-    return localStorage.getItem(ORDER_MODE_STORAGE_KEY) === 'true'
+    const stocke = localStorage.getItem(VARIANT_STORAGE_KEY)
+    if (VARIANTS.some((v) => v.cle === stocke)) return stocke
+    // Reprise de l'ancien réglage booléen, seul état persisté avant les variants.
+    return localStorage.getItem(ORDER_MODE_STORAGE_KEY) === 'true' ? 'ordre' : 'libre'
   } catch {
-    return false
+    return 'libre'
   }
 }
 
 export default function EcrisLesTousPage() {
-  const navigate = useNavigate()
   const [hideHeader, setHideHeader] = useHideHeader()
   const [step, setStep] = useState('intro') // intro | countdown | jeu | fin
   const [countdown, setCountdown] = useState(null) // 3 | 2 | 1 | 'smash' | null
@@ -68,13 +92,20 @@ export default function EcrisLesTousPage() {
   const [hintCooldownRemaining, setHintCooldownRemaining] = useState(0) // secondes restantes avant prochain clic
   const [refreshRankingKey, setRefreshRankingKey] = useState(0)
   const [editScoreModal, setEditScoreModal] = useState(null) // { date, joueur } ou null
-  const [orderMode, setOrderModeState] = useState(getInitialOrderMode)
-  const setOrderMode = useCallback((value) => {
-    setOrderModeState(value)
+  const [manquantsOuvert, setManquantsOuvert] = useState(false)
+  // Incrémenté à chaque lancement : sert de `key` aux variants pour qu'un
+  // « Rejouer » reparte d'un état vierge plutôt que de réutiliser l'instance.
+  const [variantRunKey, setVariantRunKey] = useState(0)
+  const [variant, setVariantState] = useState(getInitialVariant)
+  const setVariant = useCallback((value) => {
+    setVariantState(value)
     try {
-      localStorage.setItem(ORDER_MODE_STORAGE_KEY, value ? 'true' : 'false')
+      localStorage.setItem(VARIANT_STORAGE_KEY, value)
     } catch (_) {}
   }, [])
+  // Les deux modes historiques restent pilotés par ce booléen, y compris pour le
+  // choix du classement.
+  const orderMode = variant === 'ordre'
   const intervalRef = useRef(null)
   const countdownRef = useRef(null)
   const blinkTimeoutRef = useRef(null)
@@ -82,6 +113,9 @@ export default function EcrisLesTousPage() {
   const hintHideTimeoutRef = useRef(null)
 
   const characters = getCharacters()
+  // Trié une fois : ce tableau était reconstruit à chaque frappe (validation,
+  // indices) et à chaque seconde du chrono via le corps de rendu.
+  const charactersByIdOrder = useMemo(getCharactersByIdOrder, [])
 
   // Chronomètre
   useEffect(() => {
@@ -139,9 +173,16 @@ export default function EcrisLesTousPage() {
     setHintCooldownRemaining(0)
     if (blinkTimeoutRef.current) clearTimeout(blinkTimeoutRef.current)
     if (hintHideTimeoutRef.current) clearTimeout(hintHideTimeoutRef.current)
+    // « Par critère » et « Jauge » gèrent leur propre chrono et n'ont pas de
+    // course de vitesse à amorcer : le décompte n'a pas de sens pour eux.
+    if (variant === 'criteres' || variant === 'jauge') {
+      setVariantRunKey((k) => k + 1)
+      setStep('jeu')
+      return
+    }
     setStep('countdown')
     setCountdown(3)
-  }, [])
+  }, [variant])
 
   const indiceDelaiActivation = orderMode ? INDICE_DELAI_ACTIVATION_ORDER_SEC : INDICE_DELAI_ACTIVATION_SEC
   const indiceCooldownSec = orderMode ? INDICE_COOLDOWN_ORDER_SEC : INDICE_COOLDOWN_SEC
@@ -154,8 +195,7 @@ export default function EcrisLesTousPage() {
     }
     let p
     if (orderMode) {
-      const byOrder = getCharactersByIdOrder()
-      p = byOrder.find((c) => !foundIds.has(c.id))
+      p = charactersByIdOrder.find((c) => !foundIds.has(c.id))
       if (!p) return
     } else {
       const indicesDispo = notFound.filter((c) => {
@@ -193,8 +233,7 @@ export default function EcrisLesTousPage() {
   const validateAnswer = () => {
     let p
     if (orderMode) {
-      const byOrder = getCharactersByIdOrder()
-      const nextExpected = byOrder.find((c) => !foundIds.has(c.id))
+      const nextExpected = charactersByIdOrder.find((c) => !foundIds.has(c.id))
       if (!nextExpected) return
       if (!isAnswerCorrect(nextExpected.name, answer.trim(), nextExpected.acceptedNames)) {
         const alreadyFound = characters.find(
@@ -264,12 +303,25 @@ export default function EcrisLesTousPage() {
     setStep('fin')
   }
 
+  const confirmGiveUp = () => {
+    Modal.confirm({
+      title: 'Abandonner la partie ?',
+      content: `Ton score sera enregistré en l'état : ${foundIds.size} / ${TOTAL} combattants trouvés.`,
+      okText: 'Abandonner',
+      // `okType: 'danger'` n'est plus un type de bouton en antd v5 : il donnait un
+      // bouton contour au lieu du bouton rouge plein attendu.
+      okButtonProps: { danger: true },
+      cancelText: 'Continuer à jouer',
+      onOk: giveUp,
+    })
+  }
+
   const ranking = getRanking(TOTAL, orderMode)
   const handleDeleteScore = (date) => {
     Modal.confirm({
       title: 'Supprimer ce score ?',
       okText: 'Supprimer',
-      okType: 'danger',
+      okButtonProps: { danger: true },
       cancelText: 'Annuler',
       onOk: () => {
         deleteScore(date, orderMode)
@@ -336,6 +388,15 @@ export default function EcrisLesTousPage() {
     return <PageLoader message="Chargement des personnages..." />
   }
 
+  // Les deux variants récents portent leur propre boucle de jeu, leur chrono et
+  // leur classement. `key` garantit un état neuf à chaque relance.
+  if (step === 'jeu' && variant === 'criteres') {
+    return <EcrisCriteresJeu key={variantRunKey} player={player} onRejouer={startGame} />
+  }
+  if (step === 'jeu' && variant === 'jauge') {
+    return <EcrisJaugeJeu key={variantRunKey} player={player} onRejouer={startGame} />
+  }
+
   if (step === 'countdown' && countdown !== null) {
     return (
       <div className="ecris-page ecris-countdown-wrap">
@@ -350,7 +411,7 @@ export default function EcrisLesTousPage() {
 
   if (step === 'intro') {
     return (
-      <div className="ecris-page">
+      <div className="ecris-page page-centree">
         <GameIntroCard
           title="Écris-les tous !"
           description={`Saisis le nom de tous les personnages (${TOTAL} au total).`}
@@ -358,16 +419,26 @@ export default function EcrisLesTousPage() {
           onPrimaryClick={startGame}
           cardClassName="ecris-card"
         >
-          <ChoixPseudo value={player} onChange={setPlayer} style={{ marginBottom: 16 }} />
-          <div className="ecris-order-mode-row">
-            <Text strong>Dans l'ordre</Text>
-            <Switch checked={orderMode} onChange={setOrderMode} aria-label="Mode Dans l'ordre" />
-          </div>
-          {orderMode && (
-            <Text type="secondary" className="ecris-order-mode-hint">
-              Saisis les combattants dans l'ordre des numéros. Classement dédié ci-dessous.
-            </Text>
-          )}
+          <ChoixPseudo value={player} onChange={setPlayer} style={{ marginBottom: 20 }} />
+          <Text strong style={{ display: 'block', marginBottom: 8 }}>
+            Variant :
+          </Text>
+          <Radio.Group
+            className="ecris-variant-choix"
+            optionType="button"
+            buttonStyle="solid"
+            value={variant}
+            onChange={(e) => setVariant(e.target.value)}
+          >
+            {VARIANTS.map((v) => (
+              <Radio.Button key={v.cle} value={v.cle}>
+                {v.libelle}
+              </Radio.Button>
+            ))}
+          </Radio.Group>
+          <Text type="secondary" className="ecris-variant-hint">
+            {VARIANTS.find((v) => v.cle === variant)?.description}
+          </Text>
         </GameIntroCard>
         {ranking.length > 0 && (
           <Card className="ecris-card ecris-classement" title={orderMode ? 'Classement (Dans l\'ordre)' : 'Classement'}>
@@ -412,11 +483,13 @@ export default function EcrisLesTousPage() {
     const manquants = characters.filter((p) => !foundIds.has(p.id))
     const finalRanking = getRanking(TOTAL, orderMode)
 
+    // Une modale et non un popover : à 86 combattants manquants, le popover
+    // dépassait le bas de l'écran et se faisait rogner.
     const missingAnswersContent = (
-      <div className="ecris-manquants-popover">
+      <div className="ecris-manquants-liste">
         <div className="ecris-manquants-grid" style={{ '--cols': Math.min(8, Math.max(1, manquants.length)) }}>
           {manquants.map((p) => {
-            const src = p.filename ? getImageUrlCharacters(p.filename) : null
+            const src = urlMiniature(p.filename)
             const zoom = p.zoom != null ? p.zoom : 100
             const position = p.position || { top: 0, left: 0 }
             return (
@@ -443,7 +516,7 @@ export default function EcrisLesTousPage() {
     )
 
     return (
-      <div className="ecris-page">
+      <div className="ecris-page page-centree">
         <GameResultCard title="Partie terminée" onReplay={startGame} cardClassName="ecris-card">
           <div className="ecris-resultat">
             <Text strong style={{ fontSize: 18 }}>
@@ -454,14 +527,26 @@ export default function EcrisLesTousPage() {
               {orderMode && ' — Mode Dans l\'ordre'}
             </Text>
             {manquants.length > 0 && (
-              <Popover content={missingAnswersContent} title="Combattants manquants" trigger="click" placement="bottom">
-                <Button type="default" size="middle" className="ecris-btn-manquants">
-                  Réponses manquantes
-                </Button>
-              </Popover>
+              <Button
+                type="default"
+                size="middle"
+                className="ecris-btn-manquants"
+                onClick={() => setManquantsOuvert(true)}
+              >
+                Réponses manquantes ({manquants.length})
+              </Button>
             )}
           </div>
         </GameResultCard>
+        <Modal
+          title={`Combattants manquants (${manquants.length})`}
+          open={manquantsOuvert}
+          onCancel={() => setManquantsOuvert(false)}
+          footer={null}
+          width={760}
+        >
+          {missingAnswersContent}
+        </Modal>
         <Card className="ecris-card ecris-classement" title={orderMode ? 'Classement (Dans l\'ordre)' : 'Classement'}>
           <Table
             dataSource={[...finalRanking]
@@ -495,13 +580,12 @@ export default function EcrisLesTousPage() {
 
   // Jeu en cours : grille fixe (ordre par numéro — 01 Mario en haut à gauche, etc.)
   const guessedCount = foundIds.size
-  const charactersByIdOrder = getCharactersByIdOrder()
   const nextExpected = orderMode ? charactersByIdOrder.find((c) => !foundIds.has(c.id)) : null
   const nextExpectedId = nextExpected?.id ?? null
   const scorePct = scorePercentage(guessedCount, TOTAL, 0, 0, 0)
 
   return (
-    <div className="ecris-page">
+    <div className="ecris-page page-centree">
       <Card className="ecris-card">
         <div className="ecris-jeu-header">
           <Title level={4} style={{ margin: 0 }}>
@@ -564,7 +648,7 @@ export default function EcrisLesTousPage() {
                   </Button>
                 )}
               </div>
-              <Button size="large" onClick={giveUp}>
+              <Button size="large" onClick={confirmGiveUp}>
                 Abandonner
               </Button>
             </div>

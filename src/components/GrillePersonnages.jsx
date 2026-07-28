@@ -1,138 +1,127 @@
-import { Typography } from 'antd'
+import { memo, useCallback } from 'react'
+import { urlMiniature } from '../data/images'
 import './GrillePersonnages.css'
 
-const { Text } = Typography
 const COLS = 13
 
-const characterImageModules = import.meta.glob('../data/characters/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-
-const variantImageModules = import.meta.glob('../data/characters/couleurs/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-
-const getImageUrlCharacters = (filename) => {
-  if (!filename) return null
-  const key = Object.keys(characterImageModules).find((k) => k.endsWith('/' + filename))
-  return key ? characterImageModules[key] : null
-}
-
-const variantUrlsByBase = (() => {
-  const map = {}
-  Object.keys(variantImageModules).forEach((key) => {
-    const filename = (key.replace(/\\/g, '/').split('/').pop() || '')
-    const match = filename.match(/^(.+)_(\d+)\.webp$/i)
-    if (match) {
-      const base = match[1].toLowerCase()
-      if (!map[base]) map[base] = []
-      map[base].push(variantImageModules[key])
-    }
-  })
-  return map
-})()
-
-const getVariantUrls = (filename) => {
-  if (!filename) return []
-  const base = filename.replace(/\.webp$/i, '').toLowerCase()
-  return variantUrlsByBase[base] || []
-}
+/** Silhouette : on écrase les couleurs pour ne garder que la forme. */
+const FILTRE_SILHOUETTE = 'contrast(2000%) brightness(0)'
 
 /**
- * Grille des personnages (ordre numéro).
+ * Une case de la grille.
+ *
+ * Mémoïsée sur des props primitives : pendant « Écris-les tous ! », le parent se
+ * réaffiche à chaque frappe et à chaque seconde du chrono. Sans ce `memo`, les
+ * 86 cases reconstruisaient leur objet de style et repassaient par le diff à
+ * chacun de ces rendus.
+ */
+const Case = memo(function Case({
+  character,
+  found,
+  silhouette,
+  blink,
+  next,
+  clickable,
+  onSelect,
+}) {
+  const src = urlMiniature(character.filename)
+  const zoom = character.zoom ?? 100
+  const { top = 0, left = 0 } = character.position || {}
+  const visible = found || silhouette
+
+  const handleClick = useCallback(() => {
+    if (clickable) onSelect(character)
+  }, [clickable, onSelect, character])
+
+  const classes = ['grille-personnages-cell']
+  if (!visible) classes.push('grille-personnages-cell-vide')
+  if (silhouette) classes.push('grille-personnages-cell-silhouette')
+  if (blink) classes.push(`grille-personnages-cell-blink-${blink}`)
+  if (next) classes.push('grille-personnages-cell-next')
+  if (clickable) classes.push('grille-personnages-cell-clickable')
+
+  let contenu
+  if (visible && src) {
+    contenu = (
+      <div
+        className="grille-personnages-img"
+        role="img"
+        aria-label={found ? character.name : 'Silhouette'}
+        title={clickable ? undefined : found ? character.name : "Silhouette d'un personnage"}
+        style={{
+          backgroundImage: `url(${src})`,
+          backgroundSize: `${zoom}%`,
+          backgroundPosition: `${left}% ${top}%`,
+          ...(silhouette ? { filter: FILTRE_SILHOUETTE } : null),
+        }}
+      />
+    )
+  } else if (found) {
+    contenu = <span className="grille-personnages-nom">{character.name}</span>
+  } else {
+    contenu = <span className="grille-personnages-placeholder" />
+  }
+
+  if (clickable) {
+    return (
+      <button type="button" className={classes.join(' ')} onClick={handleClick} aria-label={character.name}>
+        {contenu}
+      </button>
+    )
+  }
+  return <div className={classes.join(' ')}>{contenu}</div>
+})
+
+/**
+ * Grille des personnages.
  * @param {Object} props
- * @param {Array} props.characters - Liste des personnages (triés par numéro)
- * @param {boolean} [props.jeu] - Mode jeu : cellules vides pour les non trouvés
+ * @param {Array} props.characters - Liste des personnages, dans l'ordre d'affichage
+ * @param {boolean} [props.jeu] - Mode jeu : cases vides pour les non trouvés
  * @param {Set} [props.foundIds] - Set des id trouvés (requis si jeu=true)
- * @param {Set} [props.silhouetteIds] - Set des id dont la silhouette est révélée (affichée en filtre)
+ * @param {Set} [props.silhouetteIds] - Set des id dont la silhouette est révélée
  * @param {number|null} [props.blinkGreenId] - id de la case à faire clignoter en vert (trouvé)
  * @param {number|null} [props.blinkOrangeId] - id de la case à faire clignoter en orange (déjà trouvé)
  * @param {number|null} [props.blinkRedSilhouetteId] - id de la case silhouette à faire clignoter en rouge
- * @param {number|null} [props.nextExpectedId] - id de la prochaine case à saisir (mode "dans l'ordre", contour rouge)
- * @param {boolean} [props.showDetailPopover] - cellules cliquables pour afficher le détail
- * @param {function} [props.onCharacterClick] - appelé au clic avec { character, src, variantUrls }
+ * @param {number|null} [props.nextExpectedId] - id de la prochaine case à saisir (mode « Dans l'ordre »)
+ * @param {function} [props.onCharacterClick] - appelé au clic avec le personnage ; rend les cases cliquables
  */
-export default function GrillePersonnages({ characters = [], jeu = false, foundIds = new Set(), silhouetteIds = new Set(), blinkGreenId = null, blinkOrangeId = null, blinkRedSilhouetteId = null, nextExpectedId = null, showDetailPopover = false, onCharacterClick }) {
-  const renderCellContent = (p) => {
-    const found = !jeu || foundIds.has(p.id)
-    const silhouette = !found && jeu && silhouetteIds.has(p.id)
-    const src = p.filename ? getImageUrlCharacters(p.filename) : null
-    const zoom = p.zoom != null ? p.zoom : 100
-    const position = p.position || { top: 0, left: 0 }
-    const blinkGreen = found && p.id === blinkGreenId
-    const blinkOrange = found && p.id === blinkOrangeId
-    const blinkRed = silhouette && p.id === blinkRedSilhouetteId
-    const isNextExpected = jeu && nextExpectedId != null && p.id === nextExpectedId && !found
-    const blinkClass = blinkGreen ? 'grille-personnages-cell-blink-green' : blinkOrange ? 'grille-personnages-cell-blink-orange' : blinkRed ? 'grille-personnages-cell-blink-red' : ''
-    const cell = (
-      <div
-        className={`grille-personnages-cell ${!found && !silhouette ? 'grille-personnages-cell-vide' : ''} ${silhouette ? 'grille-personnages-cell-silhouette' : ''} ${blinkClass} ${isNextExpected ? 'grille-personnages-cell-next' : ''} ${showDetailPopover && found && src ? 'grille-personnages-cell-clickable' : ''}`}
-      >
-        {found ? (
-          src ? (
-            <div
-              className="grille-personnages-img"
-              role="img"
-              aria-label={p.name}
-              title={showDetailPopover ? undefined : p.name}
-              style={{
-                backgroundImage: `url(${src})`,
-                backgroundSize: `${zoom}%`,
-                backgroundPosition: `${position.left}% ${position.top}%`,
-                backgroundRepeat: 'no-repeat',
-              }}
-            />
-          ) : (
-            <span className="grille-personnages-nom">{p.name}</span>
-          )
-        ) : silhouette && src ? (
-          <div
-            className="grille-personnages-img"
-            role="img"
-            aria-label="Silhouette"
-            title="Silhouette d'un personnage"
-            style={{
-              backgroundImage: `url(${src})`,
-              backgroundSize: `${zoom}%`,
-              backgroundPosition: `${position.left}% ${position.top}%`,
-              backgroundRepeat: 'no-repeat',
-              filter: 'contrast(2000%) brightness(0)',
-            }}
-          />
-        ) : (
-          <span className="grille-personnages-placeholder" />
-        )}
-      </div>
-    )
-    if (showDetailPopover && onCharacterClick && !jeu && found && (src || p.name)) {
-      const variantUrls = getVariantUrls(p.filename)
-      return (
-        <div
-          className="grille-personnages-cell-wrapper-clickable"
-          role="button"
-          tabIndex={0}
-          onClick={() => onCharacterClick({ character: p, src, variantUrls })}
-          onKeyDown={(e) => e.key === 'Enter' && onCharacterClick({ character: p, src, variantUrls })}
-        >
-          {cell}
-        </div>
-      )
-    }
-    return cell
-  }
-
+export default function GrillePersonnages({
+  characters = [],
+  jeu = false,
+  foundIds,
+  silhouetteIds,
+  blinkGreenId = null,
+  blinkOrangeId = null,
+  blinkRedSilhouetteId = null,
+  nextExpectedId = null,
+  onCharacterClick,
+}) {
   return (
-    <div
-      className="grille-personnages"
-      style={{ '--cols': COLS }}
-    >
-      {characters.map((p) => (
-        <span key={p.id}>{renderCellContent(p)}</span>
-      ))}
+    <div className="grille-personnages" style={{ '--cols': COLS }}>
+      {characters.map((p) => {
+        const found = !jeu || !!foundIds?.has(p.id)
+        const silhouette = !found && jeu && !!silhouetteIds?.has(p.id)
+        const blink =
+          found && p.id === blinkGreenId
+            ? 'green'
+            : found && p.id === blinkOrangeId
+              ? 'orange'
+              : silhouette && p.id === blinkRedSilhouetteId
+                ? 'red'
+                : null
+        return (
+          <Case
+            key={p.id}
+            character={p}
+            found={found}
+            silhouette={silhouette}
+            blink={blink}
+            next={jeu && nextExpectedId != null && p.id === nextExpectedId && !found}
+            clickable={!jeu && found && !!onCharacterClick}
+            onSelect={onCharacterClick}
+          />
+        )
+      })}
     </div>
   )
 }

@@ -13,6 +13,11 @@ import {
   BugOutlined,
   EyeOutlined,
   AudioOutlined,
+  BookOutlined,
+  CodeOutlined,
+  CompassOutlined,
+  TrophyOutlined,
+  GiftOutlined,
 } from '@ant-design/icons'
 import { getQuestionById } from '../data'
 import { getAnsweredIds } from '../utils/quizStorage'
@@ -30,7 +35,15 @@ export const TYPE_CONFIG = {
   riddle: { label: 'Énigme', icon: <BulbOutlined /> },
   intruder_logic: { label: 'Logique intrus', icon: <BugOutlined /> },
   visual_logic: { label: 'Logique visuelle', icon: <EyeOutlined /> },
-  audio_theme: { label: 'Thème audio', icon: <AudioOutlined /> }
+  audio_theme: { label: 'Thème audio', icon: <AudioOutlined /> },
+  // Ces cinq types existent dans questions.json mais n'avaient pas de libellé :
+  // le badge affichait la clé brute (« universe_lore »), et c'est le type le plus
+  // représenté du jeu de questions.
+  universe_lore: { label: 'Univers', icon: <BookOutlined /> },
+  meta_dev: { label: 'Coulisses', icon: <CodeOutlined /> },
+  adventure_mode: { label: 'Mode aventure', icon: <CompassOutlined /> },
+  assist_trophy: { label: 'Trophée aide', icon: <TrophyOutlined /> },
+  item_master: { label: 'Objets', icon: <GiftOutlined /> },
 }
 
 export const DIFFICULTY_CONFIG = {
@@ -68,7 +81,7 @@ export default function QuizHistoriquePage() {
           </Title>
           <Button onClick={() => navigate('/quiz')}>Retour au Quiz</Button>
         </div>
-        <Text type="secondary" block style={{ marginBottom: 16 }}>
+        <Text type="secondary" style={{ display: 'block', marginBottom: 16 }}>
           Choisis un joueur pour afficher les questions déjà répondues.
         </Text>
         <div className="quiz-historique-joueur">

@@ -1,0 +1,215 @@
+.ancien-page {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.ancien-card {
+  border-radius: 10px;
+  border: 1px solid var(--smash-border);
+  background: var(--smash-bg-card);
+  backdrop-filter: blur(8px);
+}
+
+.ancien-card .ant-typography {
+  color: var(--smash-text);
+}
+
+.ancien-entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ancien-serie {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--smash-red-soft);
+  background: rgba(230, 0, 18, 0.1);
+  color: var(--smash-red);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ancien-duel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ancien-choix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  font: inherit;
+  color: var(--smash-text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--smash-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ancien-choix:not(.ancien-choix-revele):hover,
+.ancien-choix:not(.ancien-choix-revele):focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--smash-red);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.ancien-choix-img {
+  width: 100%;
+  max-width: 170px;
+  aspect-ratio: 1;
+  /* Portrait entier : c'est la reconnaissance du personnage qui compte ici. */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ancien-choix-nom {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.ancien-choix-serie {
+  font-size: 0.78rem;
+  color: var(--smash-text-muted);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.ancien-choix-annee {
+  margin-top: 4px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--smash-text-muted);
+}
+
+.ancien-choix-revele {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.ancien-choix-bon,
+.ancien-choix-mauvais {
+  opacity: 1;
+}
+
+.ancien-choix-bon {
+  background: rgba(82, 196, 26, 0.18);
+  border-color: #52c41a;
+  color: #d9f7be;
+}
+
+.ancien-choix-bon .ancien-choix-annee {
+  color: #95de64;
+}
+
+.ancien-choix-mauvais {
+  background: rgba(255, 77, 79, 0.18);
+  border-color: #ff4d4f;
+  color: #ffccc7;
+}
+
+.ancien-choix-mauvais .ancien-choix-annee {
+  color: #ff7875;
+}
+
+.ancien-choix:disabled {
+  /* La couleur porte déjà l'information : pas de grisage supplémentaire. */
+  color: inherit;
+}
+
+.ancien-retour {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ancien-verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.ancien-verdict-bon {
+  background: rgba(82, 196, 26, 0.25);
+  color: #95de64;
+}
+
+.ancien-verdict-mauvais {
+  background: rgba(255, 77, 79, 0.25);
+  color: #ff7875;
+}
+
+.ancien-indice-ecart {
+  display: block;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.ancien-resultat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.ancien-resultat-serie {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--smash-red);
+  line-height: 1;
+}
+
+.ancien-resultat-texte {
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.ancien-resultat-record {
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(82, 196, 26, 0.2);
+  color: #95de64 !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ancien-classement .ant-card-head-title {
+  color: var(--smash-text);
+}
+
+@media (max-width: 560px) {
+  .ancien-choix-nom {
+    font-size: 0.95rem;
+  }
+
+  .ancien-choix-annee {
+    font-size: 1.1rem;
+  }
+}

@@ -59,7 +59,7 @@ export default function ChoixPseudo({
   return (
     <div className={`choix-pseudo ${inline ? 'choix-pseudo-inline' : ''}`} style={style}>
       {label != null && (
-        <Text strong block={!inline} className="choix-pseudo-label">
+        <Text strong style={{ display: inline ? 'inline' : 'block' }} className="choix-pseudo-label">
           {label}
         </Text>
       )}
@@ -67,6 +67,7 @@ export default function ChoixPseudo({
         <Radio.Group
           className={radioClassName}
           optionType="button"
+          buttonStyle="solid"
           value={value}
           onChange={(e) => selectPseudo(e.target.value)}
         >
@@ -92,7 +93,7 @@ export default function ChoixPseudo({
         onCancel={closeModal}
         okText="Ajouter"
         cancelText="Annuler"
-        destroyOnClose
+        destroyOnHidden
       >
         <Input
           autoFocus

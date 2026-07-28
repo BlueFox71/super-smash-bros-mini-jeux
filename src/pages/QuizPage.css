@@ -197,6 +197,57 @@
   flex: 1;
 }
 
+/* États après validation : la bonne réponse en vert, le mauvais choix en rouge,
+   les propositions non retenues estompées. */
+.quiz-option-btn-revele {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.quiz-option-btn-revele:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--smash-border);
+}
+
+.quiz-option-btn-bonne,
+.quiz-option-btn-mauvaise {
+  opacity: 1;
+}
+
+.quiz-option-btn-bonne,
+.quiz-option-btn-bonne:hover {
+  background: rgba(82, 196, 26, 0.18);
+  border-color: #52c41a;
+  color: #d9f7be;
+}
+
+.quiz-option-btn-bonne .quiz-option-letter {
+  background: #52c41a;
+  color: #0d0d0d;
+}
+
+.quiz-option-btn-mauvaise,
+.quiz-option-btn-mauvaise:hover {
+  background: rgba(255, 77, 79, 0.18);
+  border-color: #ff4d4f;
+  color: #ffccc7;
+}
+
+.quiz-option-btn-mauvaise .quiz-option-letter {
+  background: #ff4d4f;
+  color: #0d0d0d;
+}
+
+.quiz-option-marque {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.quiz-option-btn:disabled {
+  /* Neutralise le grisage par défaut : la couleur porte déjà l'information. */
+  color: inherit;
+}
+
 /* Actions */
 .quiz-actions {
   margin-top: 16px;
@@ -204,7 +255,10 @@
 
 /* Feedback après réponse */
 .quiz-feedback {
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
 }
 
 .quiz-feedback-result {

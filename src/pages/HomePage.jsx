@@ -1,5 +1,5 @@
 import { Typography, Row, Col, Card, Space } from 'antd'
-import { PictureOutlined, EditOutlined, QuestionCircleOutlined } from '@ant-design/icons'
+import { PictureOutlined, EditOutlined, QuestionCircleOutlined, BugOutlined, HourglassOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import './HomePage.css'
 
@@ -27,6 +27,20 @@ const GAMES = [
     icon: <QuestionCircleOutlined />,
     available: true,
   },
+  {
+    key: 'intrus',
+    title: "Trouve l'intrus",
+    description: 'Huit combattants partagent un trait — arme, pouvoir, corpulence… — sauf un.',
+    icon: <BugOutlined />,
+    available: true,
+  },
+  {
+    key: 'le-plus-ancien',
+    title: 'Le plus ancien',
+    description: "Lequel est apparu en premier ? Enchaîne les duels jusqu'à la première erreur.",
+    icon: <HourglassOutlined />,
+    available: true,
+  },
 ]
 
 export default function HomePage() {
@@ -36,10 +50,9 @@ export default function HomePage() {
     <div className="home-page">
       <div className="home-hero">
         <div className="home-hero-bg" aria-hidden="true">
-          <div className="home-hero-bg-strip">
-            <div className="home-hero-bg-tile" />
-            <div className="home-hero-bg-tile" />
-          </div>
+          {/* Une seule boîte : la répétition de l'image est faite en CSS
+              (`repeat-x`), sans jonction entre éléments. Cf. HomePage.css. */}
+          <div className="home-hero-bg-strip" />
         </div>
         <div className="home-hero-inner">
           <div className="hero-section">
@@ -54,7 +67,9 @@ export default function HomePage() {
       </div>
 
       <div className="home-games-section">
-        <Row gutter={[24, 24]} className="games-grid">
+        {/* `justify="center"` pour que la dernière rangée incomplète (5 jeux sur
+            3 colonnes) reste centrée au lieu de pendre à gauche. */}
+        <Row gutter={[24, 24]} justify="center" className="games-grid">
           {GAMES.map((game) => (
             <Col xs={24} sm={24} md={12} lg={8} key={game.key}>
               <Card
@@ -62,7 +77,7 @@ export default function HomePage() {
                 hoverable
                 onClick={() => navigate(`/${game.key}`)}
               >
-                <Space direction="vertical" size="middle" align="center" style={{ width: '100%' }} className="game-card-content">
+                <Space direction="vertical" size="small" align="center" style={{ width: '100%' }} className="game-card-content">
                   <Title level={2} className="game-card-title">{game.title}</Title>
                   <div className="game-icon">{game.icon}</div>
                   <Paragraph type="secondary" className="game-description">

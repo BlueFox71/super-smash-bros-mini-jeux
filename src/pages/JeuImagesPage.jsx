@@ -1,7 +1,7 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useCallback, useEffect, useMemo, useRef } from 'react'
 import { Typography, Card, Button, Space, Input, message, Progress, Checkbox, Switch } from 'antd'
-import { getCharacters, getCharactersWithImage, getRandomCharactersWithImage } from '../data'
+import { getCharacters, getCharactersWithImage, getRandomCharactersWithImage, shuffleArray } from '../data'
+import { urlOriginal, urlVariante, numerosVariantes, aDesVariantes } from '../data/images'
 import { isAnswerCorrect } from '../utils/reponseUtils'
 import { MODIFIERS, pickRandomModifier } from '../utils/imageModifiers'
 import GameIntroCard from '../components/GameIntroCard'
@@ -17,78 +17,13 @@ const NB_ESSAIS = 5
 const GUESSPIXEL_DECREMENT = 8
 const GUESSPIXEL_MIN = 8
 
-// Images depuis le dossier characters (filename)
-const characterImageModules = import.meta.glob('../data/characters/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-const getImageUrlCharacters = (filename) => {
-  if (!filename) return null
-  const key = Object.keys(characterImageModules).find((k) => k.endsWith('/' + filename))
-  return key ? characterImageModules[key] : null
-}
-
-// Images variantes depuis characters/couleurs (ex: "mario_7.webp")
-const variantImageModules = import.meta.glob('../data/characters/couleurs/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-/** base -> { 1: url, 2: url, ... } */
-const variantUrlsByBase = (() => {
-  const map = {}
-  Object.keys(variantImageModules).forEach((key) => {
-    const name = (key.replace(/\\/g, '/').split('/').pop() || '')
-    const match = name.match(/^(.+)_(\d+)\.webp$/i)
-    if (match) {
-      const base = match[1].toLowerCase()
-      const num = parseInt(match[2], 10)
-      if (!map[base]) map[base] = {}
-      map[base][num] = variantImageModules[key]
-    }
-  })
-  return map
-})()
-const getVariantImageUrl = (baseFromFilename, variantNum) => {
-  if (!baseFromFilename) return null
-  const base = baseFromFilename.replace(/\.webp$/i, '').toLowerCase()
-  const variants = variantUrlsByBase[base]
-  return variants?.[variantNum] ?? null
-}
-/** Personnages qui ont au moins une image dans couleurs */
-const getCharactersWithVariants = () => {
-  const withImage = getCharactersWithImage()
-  return withImage.filter((p) => {
-    const base = (p.filename || '').replace(/\.webp$/i, '').toLowerCase()
-    const v = variantUrlsByBase[base]
-    return v && Object.keys(v).length >= 1
-  })
-}
-/** Retourne la liste des numéros de variantes dispo (1–7) pour un base name, triés. */
-const getAvailableVariantNums = (baseFromFilename) => {
-  const base = baseFromFilename.replace(/\.webp$/i, '').toLowerCase()
-  const variants = variantUrlsByBase[base]
-  if (!variants || Object.keys(variants).length === 0) return []
-  return Object.keys(variants)
-    .map(Number)
-    .filter((n) => n >= 1 && n <= 7)
-    .sort((a, b) => a - b)
-}
-/** Mélange un tableau (Fisher–Yates). */
-const shuffleArray = (arr) => {
-  const out = [...arr]
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]]
-  }
-  return out
-}
+/** Personnages qui ont au moins une image dans couleurs. */
+const getCharactersWithVariants = () =>
+  getCharactersWithImage().filter((p) => aDesVariantes(p.filename))
 
 export default function JeuImagesPage() {
-  const navigate = useNavigate()
   const characters = getCharacters()
-  const charactersWithImage = getCharactersWithImage()
+  const charactersWithImage = useMemo(getCharactersWithImage, [])
   const [step, setStep] = useState('intro') // intro | jeu | fin
   const [questions, setQuestions] = useState([])
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -143,6 +78,19 @@ export default function JeuImagesPage() {
     }
   }, [step, revealed, questionIndex, questions.length])
 
+  // Précharger l'image de la question suivante : l'enchaînement est automatique
+  // 3 s après la révélation, sans quoi l'image apparaît en retard.
+  useEffect(() => {
+    if (step !== 'jeu') return
+    const suivante = questions[questionIndex + 1]
+    if (!suivante) return
+    const url = suivante.variantImageUrl ?? urlOriginal(suivante.filename)
+    if (!url) return
+    const img = new Image()
+    img.decoding = 'async'
+    img.src = url
+  }, [step, questions, questionIndex])
+
   // Garder le focus sur l'input en jeu pour enchaîner les réponses sans recliquer
   useEffect(() => {
     if (step === 'jeu' && !revealed) {
@@ -164,15 +112,13 @@ export default function JeuImagesPage() {
         message.warning('Aucun personnage avec variantes disponibles.')
         return
       }
-      const shuffledCharacters = shuffleArray(charactersWithVariants)
-      const charactersForRound = shuffledCharacters.slice(0, NB_QUESTIONS)
+      const charactersForRound = shuffleArray(charactersWithVariants).slice(0, NB_QUESTIONS)
       const arr = charactersForRound.map((character) => {
         const mod = pickRandomModifier(allowedModifiers)
-        const variantNums = getAvailableVariantNums(character.filename)
+        const variantNums = numerosVariantes(character.filename)
         const variantNum = variantNums.length > 0 ? variantNums[Math.floor(Math.random() * variantNums.length)] : null
-        const variantUrl = variantNum != null ? getVariantImageUrl(character.filename, variantNum) : null
-        const fallbackMainUrl = getImageUrlCharacters(character.filename)
-        const variantImageUrl = variantUrl || fallbackMainUrl
+        const variantUrl = variantNum != null ? urlVariante(character.filename, variantNum) : null
+        const variantImageUrl = variantUrl || urlOriginal(character.filename)
         const q = { ...character, imageModifier: mod, variantImageUrl }
         if (mod.pixelLevels?.length) {
           q.guesspixelSize = Math.max(...mod.pixelLevels)
@@ -240,10 +186,10 @@ export default function JeuImagesPage() {
     message.info(`C'était : ${question.name}.`)
   }
 
-  const sampleFilename = getCharacters()[0]?.filename || 'mario.webp'
+  const sampleFilename = characters[0]?.filename || 'mario.webp'
   const sampleImageUrl = variantMode
-    ? (getVariantImageUrl('mario.webp', 7) || getImageUrlCharacters('mario.webp'))
-    : getImageUrlCharacters(sampleFilename)
+    ? (urlVariante('mario.webp', 7) || urlOriginal('mario.webp'))
+    : urlOriginal(sampleFilename)
 
   const modifierPreview = (
     <div className="jeu-images-apercu">
@@ -327,7 +273,7 @@ export default function JeuImagesPage() {
 
   if (step === 'intro') {
     return (
-      <div className="jeu-images-page">
+      <div className="jeu-images-page page-centree">
         <GameIntroCard
           title="Jeu d'images"
           description="Identifie le personnage à partir d'une image modifiée (flou, zoom, pixelisé, etc.). Réponse sans accent, à une lettre près."
@@ -352,7 +298,7 @@ export default function JeuImagesPage() {
   if (step === 'fin') {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0
     return (
-      <div className="jeu-images-page">
+      <div className="jeu-images-page page-centree">
         <GameResultCard title="Résultat" onReplay={startGame} cardClassName="jeu-images-card">
           <div className="jeu-images-score">
             <Progress type="circle" percent={pct} strokeColor={strokeColors} className="jeu-images-progress-circle" />
@@ -366,13 +312,13 @@ export default function JeuImagesPage() {
   }
 
   const question = questions[questionIndex]
-  const imageUrl = question?.variantImageUrl ?? getImageUrlCharacters(question?.filename)
+  const imageUrl = question?.variantImageUrl ?? urlOriginal(question?.filename)
   const progress = ((questionIndex + 1) / questions.length) * 100
   const isZoomErratique = question?.imageModifier?.key === 'random-zoom' && !revealed
 
   return (
-    <div className="jeu-images-page">
-      <Progress percent={Math.round(progress)} strokeColor={strokeColors} className="jeu-images-progress-bar" style={{ marginBottom: 24 }} />
+    <div className="jeu-images-page page-centree">
+      <Progress percent={Math.round(progress)} strokeColor={strokeColors} className="jeu-images-progress-bar" />
       <Card className="jeu-images-card">
         <Title level={4} type="secondary">
           Question {questionIndex + 1} / {questions.length}
@@ -419,9 +365,22 @@ export default function JeuImagesPage() {
         </div>
         <div className="jeu-images-reponse">
           {!revealed && (
-            <Text type="secondary" className="jeu-images-essais">
-              {attemptsLeft} essai{attemptsLeft !== 1 ? 's' : ''} restant{attemptsLeft !== 1 ? 's' : ''}
-            </Text>
+            <div
+              className="jeu-images-essais"
+              role="status"
+              aria-label={`${attemptsLeft} essai${attemptsLeft !== 1 ? 's' : ''} restant${attemptsLeft !== 1 ? 's' : ''}`}
+            >
+              {Array.from({ length: NB_ESSAIS }, (_, i) => (
+                <span
+                  key={i}
+                  aria-hidden
+                  className={`jeu-images-essai-pastille ${i < attemptsLeft ? '' : 'jeu-images-essai-pastille-perdue'}`}
+                />
+              ))}
+              <Text type="secondary" className="jeu-images-essais-texte">
+                {attemptsLeft} essai{attemptsLeft !== 1 ? 's' : ''} restant{attemptsLeft !== 1 ? 's' : ''}
+              </Text>
+            </div>
           )}
           <Input
             ref={inputRef}

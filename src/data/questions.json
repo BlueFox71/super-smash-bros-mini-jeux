@@ -10,7 +10,7 @@
             "Sephiroth",
             "Terry"
         ],
-        "answer": "Sora"
+        "correct_option": 0
     },
     {
         "id": 2,
@@ -23,7 +23,7 @@
             "82",
             "70"
         ],
-        "answer": "Vrai"
+        "correct_option": 0
     },
     {
         "id": 3,
@@ -36,7 +36,7 @@
             "Short Hop",
             "Fast Fall"
         ],
-        "answer": "8"
+        "correct_option": 0
     },
     {
         "id": 4,
@@ -49,7 +49,7 @@
             "Mega Man",
             "Ridley"
         ],
-        "answer": "Mario"
+        "correct_option": 0
     },
     {
         "id": 5,
@@ -62,7 +62,7 @@
             "La Voie des Guerriers",
             "Le Smash en Masse"
         ],
-        "answer": "Melee"
+        "correct_option": 0
     },
     {
         "id": 6,
@@ -75,7 +75,7 @@
             "Steve",
             "Séphiroth"
         ],
-        "answer": "Faux"
+        "correct_option": 0
     },
     {
         "id": 7,
@@ -88,7 +88,7 @@
             "Saisie",
             "Défense"
         ],
-        "answer": "Incineroar (Félinferno)"
+        "correct_option": 0
     },
     {
         "id": 8,
@@ -101,7 +101,7 @@
             "Mii Brave",
             "Rubis"
         ],
-        "answer": "82"
+        "correct_option": 0
     },
     {
         "id": 9,
@@ -114,7 +114,7 @@
             "Direct Interaction",
             "Double Impact"
         ],
-        "answer": "Splatoon"
+        "correct_option": 0
     },
     {
         "id": 10,
@@ -127,7 +127,7 @@
             "Shadow",
             "Tails"
         ],
-        "answer": "Vrai"
+        "correct_option": 0
     },
     {
         "id": 11,
@@ -140,7 +140,7 @@
             "Moyen",
             "Léger"
         ],
-        "answer": "Inkling"
+        "correct_option": 0
     },
     {
         "id": 12,
@@ -153,7 +153,7 @@
             "Villager",
             "Duck Hunt"
         ],
-        "answer": "3"
+        "correct_option": 0
     },
     {
         "id": 13,
@@ -166,7 +166,7 @@
             "Street Fighter",
             "Virtua Fighter"
         ],
-        "answer": "64"
+        "correct_option": 0
     },
     {
         "id": 14,
@@ -179,7 +179,7 @@
             "Super Move",
             "Critical Hit"
         ],
-        "answer": "Vrai"
+        "correct_option": 0
     },
     {
         "id": 15,
@@ -192,7 +192,7 @@
             "Lucina",
             "Ken"
         ],
-        "answer": "Final Fantasy VII"
+        "correct_option": 0
     },
     {
         "id": 16,
@@ -205,7 +205,7 @@
             "Il n'a pas de bords",
             "Il change de saison"
         ],
-        "answer": "Byleth"
+        "correct_option": 0
     },
     {
         "id": 17,
@@ -218,7 +218,7 @@
             "Eiji Aonuma",
             "Hideo Kojima"
         ],
-        "answer": "Faux"
+        "correct_option": 0
     },
     {
         "id": 18,
@@ -231,7 +231,7 @@
             "Conteneur à cœur",
             "Masque de Majora"
         ],
-        "answer": "12"
+        "correct_option": 0
     },
     {
         "id": 19,
@@ -244,7 +244,7 @@
             "10",
             "12"
         ],
-        "answer": "Lucina"
+        "correct_option": 0
     },
     {
         "id": 20,
@@ -257,7 +257,7 @@
             "Air Dodge",
             "Tech"
         ],
-        "answer": "Vrai"
+        "correct_option": 0
     },
     {
         "id": 21,
@@ -270,7 +270,7 @@
             "Mario",
             "Kirby"
         ],
-        "answer": "Joker"
+        "correct_option": 0
     },
     {
         "id": 22,
@@ -283,7 +283,7 @@
             "Palutena",
             "Zelda"
         ],
-        "answer": "Lueur du Monde (World of Light)"
+        "correct_option": 0
     },
     {
         "id": 23,
@@ -296,7 +296,7 @@
             "B",
             "Stick Droit"
         ],
-        "answer": "15"
+        "correct_option": 0
     },
     {
         "id": 24,
@@ -309,7 +309,7 @@
             "Herbizarre",
             "Dracaufeu"
         ],
-        "answer": "Faux"
+        "correct_option": 0
     },
     {
         "id": 25,
@@ -322,7 +322,7 @@
             "7.0",
             "9.9"
         ],
-        "answer": "Terry Bogard"
+        "correct_option": 0
     },
     {
         "id": 26,
@@ -335,7 +335,7 @@
             "Dracula",
             "Soma"
         ],
-        "answer": "Bayonetta"
+        "correct_option": 0
     },
     {
         "id": 27,
@@ -348,7 +348,7 @@
             "Coup de Bouclier",
             "Bombe à distance"
         ],
-        "answer": "Vrai"
+        "correct_option": 0
     },
     {
         "id": 28,
@@ -361,7 +361,7 @@
             "Master Hand",
             "Giga Bowser"
         ],
-        "answer": "Steve"
+        "correct_option": 0
     },
     {
         "id": 29,
@@ -374,7 +374,7 @@
             "Lance des projectiles",
             "Est invisible"
         ],
-        "answer": "01"
+        "correct_option": 0
     },
     {
         "id": 30,
@@ -387,7 +387,7 @@
             "Fox",
             "Pac-Man"
         ],
-        "answer": "Faux"
+        "correct_option": 0
     },
     {
         "id": 31,
@@ -399,7 +399,7 @@
             "Faux"
         ],
         "correct_option": 0,
-        "answer": "Faux"
+        "answer": "Vrai"
     },
     {
         "id": 32,
@@ -559,7 +559,7 @@
             "Faux"
         ],
         "correct_option": 0,
-        "answer": "Faux"
+        "answer": "Vrai"
     },
     {
         "id": 44,
@@ -599,7 +599,7 @@
             "Faux"
         ],
         "correct_option": 1,
-        "answer": "Vrai"
+        "answer": "Faux"
     },
     {
         "id": 47,
@@ -945,7 +945,7 @@
             "Faux"
         ],
         "correct_option": 0,
-        "answer": "Faux"
+        "answer": "Vrai"
     },
     {
         "id": 73,
@@ -3090,8 +3090,7 @@
             "Mega Man",
             "Duck Hunt"
         ],
-        "correct_option": 0,
-        "answer": "Duck Hunt"
+        "correct_option": 0
     },
     {
         "id": 234,
@@ -12422,7 +12421,7 @@
             "Leveinard",
             "Noeunoeuf",
             "Togepi",
-            "Leveinard"
+            "Ectoplasma"
         ],
         "correct_option": 0,
         "answer": "Leveinard lance des œufs qui peuvent soit soigner, soit exploser."
@@ -13672,5 +13671,300 @@
         ],
         "correct_option": 0,
         "answer": "Il est sorti le 21 janvier 1999 au Japon."
+    },
+    {
+        "id": 1001,
+        "type": "universe_lore",
+        "difficulty": "easy",
+        "question": "Quel combattant est le plus lourd de Super Smash Bros. Ultimate ?",
+        "options": [
+            "King K. Rool",
+            "Bowser",
+            "Donkey Kong",
+            "Ridley"
+        ],
+        "correct_option": 1,
+        "answer": "Bowser devance de peu King K. Rool au classement des poids."
+    },
+    {
+        "id": 1002,
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Quel personnage possède le « tipper », qui récompense les coups portés avec la pointe de l'épée ?",
+        "options": [
+            "Lucina",
+            "Roy",
+            "Marth",
+            "Chrom"
+        ],
+        "correct_option": 2,
+        "answer": "Lucina est justement l'écho de Marth privé de cette mécanique : elle frappe uniformément."
+    },
+    {
+        "id": 1003,
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "Dr. Mario est un combattant écho de Mario.",
+        "options": [
+            "Vrai",
+            "Faux"
+        ],
+        "correct_option": 1,
+        "answer": "Faux : Dr. Mario est un combattant à part entière, avec son propre numéro et des dégâts différents."
+    },
+    {
+        "id": 1004,
+        "type": "history",
+        "difficulty": "medium",
+        "question": "Combien de combattants échos Super Smash Bros. Ultimate compte-t-il ?",
+        "options": [
+            "5",
+            "7",
+            "9",
+            "12"
+        ],
+        "correct_option": 1,
+        "answer": "Samus sombre, Daisy, Lucina, Chrom, Pit Maléfique, Ken et Richter."
+    },
+    {
+        "id": 1005,
+        "type": "riddle",
+        "difficulty": "easy",
+        "question": "Je suis plombier, je porte une blouse blanche et je lance des mégavitamines. Qui suis-je ?",
+        "options": [
+            "Mario",
+            "Luigi",
+            "Dr. Mario",
+            "Wario"
+        ],
+        "correct_option": 2
+    },
+    {
+        "id": 1006,
+        "type": "riddle",
+        "difficulty": "easy",
+        "question": "Je mine des blocs pour fabriquer mes armes et je construis en pleine bataille. Qui suis-je ?",
+        "options": [
+            "Steve",
+            "Villageois",
+            "Olimar",
+            "R.O.B."
+        ],
+        "correct_option": 0
+    },
+    {
+        "id": 1007,
+        "type": "intruder_logic",
+        "difficulty": "easy",
+        "question": "Lequel de ces combattants n'est PAS un poids lourd ?",
+        "options": [
+            "Ganondorf",
+            "King K. Rool",
+            "Pikachu",
+            "Bowser"
+        ],
+        "correct_option": 2
+    },
+    {
+        "id": 1008,
+        "type": "universe_lore",
+        "difficulty": "easy",
+        "question": "De quelle série provient Min Min ?",
+        "options": [
+            "Splatoon",
+            "ARMS",
+            "Xenoblade Chronicles",
+            "Kid Icarus"
+        ],
+        "correct_option": 1
+    },
+    {
+        "id": 1009,
+        "type": "universe_lore",
+        "difficulty": "easy",
+        "question": "De quelle série provient Joker ?",
+        "options": [
+            "Persona",
+            "Devil May Cry",
+            "Bayonetta",
+            "Final Fantasy"
+        ],
+        "correct_option": 0,
+        "answer": "Joker est le héros de Persona 5."
+    },
+    {
+        "id": 1010,
+        "type": "universe_lore",
+        "difficulty": "medium",
+        "question": "De quel jeu Byleth provient-il ?",
+        "options": [
+            "Fire Emblem: Awakening",
+            "Fire Emblem: Three Houses",
+            "Fire Emblem Fates",
+            "Fire Emblem: Path of Radiance"
+        ],
+        "correct_option": 1
+    },
+    {
+        "id": 1011,
+        "type": "history",
+        "difficulty": "medium",
+        "question": "Dans quel jeu Kirby est-il apparu pour la première fois ?",
+        "options": [
+            "Kirby's Adventure",
+            "Kirby Super Star",
+            "Kirby's Dream Land",
+            "Kirby Air Ride"
+        ],
+        "correct_option": 2,
+        "answer": "Kirby's Dream Land, sorti sur Game Boy en 1992."
+    },
+    {
+        "id": 1012,
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Quel combattant peut charger un « Poing K.O. » dévastateur ?",
+        "options": [
+            "Ryu",
+            "Little Mac",
+            "Terry",
+            "Kazuya"
+        ],
+        "correct_option": 1
+    },
+    {
+        "id": 1013,
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Quel combattant est réputé avoir la pire récupération du jeu ?",
+        "options": [
+            "Little Mac",
+            "Ganondorf",
+            "Incineroar",
+            "Chrom"
+        ],
+        "correct_option": 0,
+        "answer": "Son Up-B ne prend presque aucune hauteur, ce qui le rend très vulnérable hors de la scène."
+    },
+    {
+        "id": 1014,
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Quel combattant change de Pokémon au fil du combat ?",
+        "options": [
+            "Lucario",
+            "Amphinobi",
+            "Dresseur de Pokémon",
+            "Mewtwo"
+        ],
+        "correct_option": 2,
+        "answer": "Il alterne entre Carapuce, Herbizarre et Dracaufeu."
+    },
+    {
+        "id": 1015,
+        "type": "item_master",
+        "difficulty": "medium",
+        "question": "Quel objet restaure 100 % de dégâts à lui seul ?",
+        "options": [
+            "Tomate Vitaminée",
+            "Conteneur à cœur",
+            "Fée en bouteille",
+            "Sac de nourriture"
+        ],
+        "correct_option": 1,
+        "answer": "La Tomate Vitaminée, elle, n’en restaure que 50."
+    },
+    {
+        "id": 1016,
+        "type": "item_master",
+        "difficulty": "easy",
+        "question": "Quel objet fait grandir un combattant et augmente sa puissance ?",
+        "options": [
+            "Super Champignon",
+            "Champignon Vénéneux",
+            "Trèfle",
+            "Bombe Smash"
+        ],
+        "correct_option": 0,
+        "answer": "Le Champignon Vénéneux produit l’effet inverse : il rapetisse."
+    },
+    {
+        "id": 1017,
+        "type": "true_false",
+        "difficulty": "hard",
+        "question": "Un combattant peut dépasser 999 % de dégâts dans Super Smash Bros. Ultimate.",
+        "options": [
+            "Vrai",
+            "Faux"
+        ],
+        "correct_option": 1,
+        "answer": "Faux : le compteur plafonne à 999,9 %."
+    },
+    {
+        "id": 1018,
+        "type": "meta_dev",
+        "difficulty": "medium",
+        "question": "Avant Ultimate, quel argument revenait pour écarter Ridley du roster ?",
+        "options": [
+            "Il était trop grand",
+            "Il ne savait pas voler",
+            "Il appartenait à un éditeur tiers",
+            "Il était trop récent"
+        ],
+        "correct_option": 0,
+        "answer": "Sa taille passait pour incompatible avec un combat équilibré ; Ultimate l’a réduit pour le rendre jouable."
+    },
+    {
+        "id": 1019,
+        "type": "meta_dev",
+        "difficulty": "hard",
+        "question": "Quels sont les deux premiers combattants tiers de la série ?",
+        "options": [
+            "Sonic et Mega Man",
+            "Snake et Sonic",
+            "Ryu et Cloud",
+            "Pac-Man et Sonic"
+        ],
+        "correct_option": 1,
+        "answer": "Tous deux arrivent avec Super Smash Bros. Brawl."
+    },
+    {
+        "id": 1020,
+        "type": "meta_dev",
+        "difficulty": "hard",
+        "question": "Banjo et Kazooie sont nés dans un studio qui appartenait alors à quelle société ?",
+        "options": [
+            "Microsoft",
+            "Sega",
+            "Nintendo",
+            "Sony"
+        ],
+        "correct_option": 2,
+        "answer": "Rare était un studio second party de Nintendo avant son rachat par Microsoft en 2002."
+    },
+    {
+        "id": 1021,
+        "type": "adventure_mode",
+        "difficulty": "medium",
+        "question": "Comment débloque-t-on Sephiroth à sa sortie, en dehors de la méthode habituelle ?",
+        "options": [
+            "En terminant La Lueur du Monde",
+            "En remportant un défi chronométré",
+            "En jouant 100 combats",
+            "En achetant un Esprit"
+        ],
+        "correct_option": 1,
+        "answer": "Le « défi Sephiroth » proposait de l’affronter directement pour le débloquer avant l’heure."
+    },
+    {
+        "id": 1022,
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "Les combattants Mii disposent de trois variantes pour chacun de leurs quatre coups spéciaux.",
+        "options": [
+            "Vrai",
+            "Faux"
+        ],
+        "correct_option": 0
     }
 ]

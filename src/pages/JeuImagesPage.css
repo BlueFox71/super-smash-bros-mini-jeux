@@ -94,8 +94,32 @@
   gap: 16px;
 }
 
+/* Essais restants : pastilles qui s'éteignent, doublées du décompte écrit pour
+   ne pas reposer sur la seule couleur. */
 .jeu-images-essais {
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jeu-images-essai-pastille {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--smash-red);
+  box-shadow: 0 0 8px var(--smash-red-soft);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.jeu-images-essai-pastille-perdue {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+  transform: scale(0.75);
+}
+
+.jeu-images-essais-texte {
+  margin-left: 4px;
+  font-size: 0.85rem;
   color: var(--smash-text-muted) !important;
 }
 

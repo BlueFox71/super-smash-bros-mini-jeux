@@ -27,44 +27,28 @@ body {
   min-height: 100vh;
 }
 
-/* Couleur primaire rouge : boutons et radios */
-.ant-btn-primary {
-  background: var(--smash-red) !important;
-  border-color: var(--smash-red) !important;
-}
-.ant-btn-primary:hover {
-  background: var(--smash-red-hover) !important;
-  border-color: var(--smash-red-hover) !important;
+/**
+ * Écrans courts (intro, résultat, question) : sans ça la carte se colle en haut
+ * d'un viewport aux deux tiers vide. `min-height` plutôt que `height` pour que
+ * les écrans plus hauts (aperçu des modificateurs, classement) débordent
+ * normalement vers le bas au lieu d'être rognés.
+ */
+.page-centree {
+  min-height: calc(100vh - 64px - 48px);
+  display: flex;
+  flex-direction: column;
+  /* `stretch` et non `center` : le centrage horizontal vient du `max-width` +
+     `margin: 0 auto` de chaque page, et `center` ferait rétrécir les cartes
+     jusqu'à la largeur de leur contenu. */
+  align-items: stretch;
+  justify-content: center;
+  gap: 24px;
 }
 
-/* Boutons blancs / default : hover rouge */
-.ant-btn:not(.ant-btn-primary):hover {
-  color: var(--smash-red) !important;
-  border-color: var(--smash-red) !important;
-}
-
-/* Radio buttons : hover et sélection en rouge */
-.ant-radio-button-wrapper:hover {
-  color: var(--smash-red) !important;
-}
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-  background: var(--smash-red) !important;
-  border-color: var(--smash-red) !important;
-  color: #fff !important;
-}
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background: var(--smash-red-hover) !important;
-  border-color: var(--smash-red-hover) !important;
-  color: #fff !important;
-}
-.ant-radio-wrapper:hover .ant-radio-inner,
-.ant-radio:hover .ant-radio-inner {
-  border-color: var(--smash-red) !important;
-}
-.ant-radio-input:focus + .ant-radio-inner {
-  box-shadow: 0 0 0 2px var(--smash-red-soft) !important;
-}
-.ant-radio-checked .ant-radio-inner {
-  border-color: var(--smash-red) !important;
-  background: var(--smash-red) !important;
-}
+/**
+ * Boutons et radios tirent leur rouge du token `colorPrimary` (cf. main.jsx).
+ * Une série de surcharges `!important` faisait ce travail avant que le thème
+ * sombre d'antd soit configuré ; elles écrasaient aussi l'état désactivé, si
+ * bien qu'un bouton « Valider » grisé restait rouge vif et cliquable en
+ * apparence. Le token s'en charge et respecte les états.
+ */

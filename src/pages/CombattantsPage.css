@@ -1,12 +1,47 @@
 .combattants-page {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 24px 24px 48px;
+  min-height: calc(100vh - 64px - 48px);
+  display: flex;
+  flex-direction: column;
+  /* Titre + grille + astuce forment un seul bloc, centré dans la hauteur. */
+  justify-content: center;
+}
+
+.combattants-entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.combattants-entete h2.ant-typography {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.combattants-compteur {
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--smash-red-soft);
+  background: rgba(230, 0, 18, 0.1);
+  color: var(--smash-red) !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.combattants-astuce {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
 }
 
 .combattants-grille-section {
-  border-top: 1px solid var(--smash-border);
-  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .combattants-grille-section--with-detail {
@@ -57,7 +92,16 @@
   flex: 1;
   min-width: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+/* Sans panneau de détail ouvert, la grille peut respirer sur toute la largeur. */
+.combattants-grille-wrapper .grille-personnages {
+  max-width: 1240px;
+}
+
+.combattants-grille-section--with-detail .grille-personnages {
+  max-width: 1000px;
 }
 
 @media (max-width: 768px) {

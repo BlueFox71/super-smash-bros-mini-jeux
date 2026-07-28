@@ -31,6 +31,11 @@ function getTypeConfig(type) {
   return TYPE_CONFIG[type] ?? { label: type, icon: <QuestionCircleOutlined /> }
 }
 
+/** Minuscules, sans espaces ni ponctuation de fin, pour comparer deux libellés. */
+function normaliserTexte(s) {
+  return String(s ?? '').trim().toLowerCase().replace(/[.!?\s]+$/, '')
+}
+
 function getDifficultyConfig(difficulty) {
   return DIFFICULTY_CONFIG[difficulty] ?? { label: difficulty, icon: <StarOutlined />, className: '' }
 }
@@ -92,7 +97,7 @@ export default function QuizPage() {
   if (step === 'intro') {
     const characters = getCharactersByNumberOrder()
     return (
-      <div className="quiz-page quiz-page-intro">
+      <div className="quiz-page quiz-page-intro page-centree">
         <div className="quiz-intro-card-wrap">
           <GameIntroCard
             title="Quiz"
@@ -102,12 +107,13 @@ export default function QuizPage() {
             cardClassName="quiz-card"
           >
             <ChoixPseudo value={player} onChange={setPlayer} style={{ marginBottom: 24 }} />
-            <Text strong block style={{ marginBottom: 8 }}>
+            <Text strong style={{ display: 'block', marginBottom: 8 }}>
               Nombre de questions :
             </Text>
             <Radio.Group
               className="quiz-radio-nb"
               optionType="button"
+              buttonStyle="solid"
               value={nbQuestions}
               onChange={(e) => setNbQuestions(e.target.value)}
             >
@@ -135,7 +141,7 @@ export default function QuizPage() {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0
     const strokeColors = { '0%': '#e60012', '100%': '#87d068' }
     return (
-      <div className="quiz-page">
+      <div className="quiz-page page-centree">
         <GameResultCard title="Résultat" onReplay={startGame} cardClassName="quiz-card">
           <div className="quiz-score">
             <Text strong style={{ fontSize: 18, marginBottom: 8, display: 'block' }}>
@@ -162,15 +168,17 @@ export default function QuizPage() {
       ? question.options[question.correct_option]
       : ''
   const explanationText = question.answer != null ? String(question.answer).trim() : ''
-  const showExplanation = explanationText && explanationText !== correctAnswerText
+  // Beaucoup de questions ont un `answer` qui répète l'intitulé de la bonne option
+  // à un point final près (« Little Mac. » vs « Little Mac ») : inutile de
+  // l'afficher sous les propositions dans ce cas.
+  const showExplanation = explanationText && normaliserTexte(explanationText) !== normaliserTexte(correctAnswerText)
 
   return (
-    <div className="quiz-page">
+    <div className="quiz-page page-centree">
       <Progress
         percent={Math.round(progress)}
         strokeColor={strokeColors}
         className="quiz-progress-bar"
-        style={{ marginBottom: 24 }}
       />
       <Card className="quiz-card">
         <Title level={4} type="secondary">
@@ -192,54 +200,65 @@ export default function QuizPage() {
           <Text strong>{question.question}</Text>
         </div>
 
-        {!revealed ? (
-          <>
-            <div className="quiz-options">
-              {(question.options || []).map((opt, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`quiz-option-btn ${selectedOption === idx ? 'quiz-option-btn-selected' : ''}`}
-                  onClick={() => setSelectedOption(idx)}
-                >
-                  <span className="quiz-option-letter">{String.fromCharCode(65 + idx)}</span>
-                  <span className="quiz-option-text">{opt}</span>
-                </button>
-              ))}
-            </div>
-            <div className="quiz-actions">
-              <Button
-                type="primary"
-                size="large"
-                onClick={submitAnswer}
-                disabled={selectedOption === null}
+        {/* Les propositions restent affichées après validation : on voit d'un coup
+            d'œil laquelle on avait choisie et où était la bonne réponse. */}
+        <div className="quiz-options">
+          {(question.options || []).map((opt, idx) => {
+            const estBonne = idx === question.correct_option
+            const estChoisie = idx === selectedOption
+            const etats = ['quiz-option-btn']
+            if (revealed) {
+              etats.push('quiz-option-btn-revele')
+              if (estBonne) etats.push('quiz-option-btn-bonne')
+              else if (estChoisie) etats.push('quiz-option-btn-mauvaise')
+            } else if (estChoisie) {
+              etats.push('quiz-option-btn-selected')
+            }
+            return (
+              <button
+                key={idx}
+                type="button"
+                className={etats.join(' ')}
+                onClick={() => setSelectedOption(idx)}
+                disabled={revealed}
               >
-                Valider
-              </Button>
+                <span className="quiz-option-letter">{String.fromCharCode(65 + idx)}</span>
+                <span className="quiz-option-text">{opt}</span>
+                {revealed && estBonne && <CheckOutlined className="quiz-option-marque" />}
+                {revealed && estChoisie && !estBonne && <CloseOutlined className="quiz-option-marque" />}
+              </button>
+            )
+          })}
+        </div>
+
+        {revealed && (
+          <div className="quiz-feedback">
+            <div className={`quiz-feedback-result ${answerIsCorrect ? 'quiz-feedback-correct' : 'quiz-feedback-wrong'}`}>
+              {answerIsCorrect ? <CheckOutlined /> : <CloseOutlined />}
+              <span>{answerIsCorrect ? 'Bonne réponse !' : 'Mauvaise réponse'}</span>
             </div>
-          </>
-        ) : (
-          <>
-            <div className="quiz-feedback">
-              <div className={`quiz-feedback-result ${answerIsCorrect ? 'quiz-feedback-correct' : 'quiz-feedback-wrong'}`}>
-                {answerIsCorrect ? <CheckOutlined /> : <CloseOutlined />}
-                <span>{answerIsCorrect ? 'Bonne réponse !' : 'Mauvaise réponse'}</span>
-              </div>
-              <div className="quiz-answer-detail">
-                <Text type="secondary">Réponse :</Text>
-                <Text strong className="quiz-answer-text">{correctAnswerText}</Text>
-                {showExplanation && (
-                  <Text className="quiz-answer-detail-extra">{question.answer}</Text>
-                )}
-              </div>
-            </div>
-            <div className="quiz-actions">
-              <Button type="primary" size="large" onClick={goNext}>
-                Suivante
-              </Button>
-            </div>
-          </>
+            {showExplanation && (
+              <Text className="quiz-answer-detail-extra">{question.answer}</Text>
+            )}
+          </div>
         )}
+
+        <div className="quiz-actions">
+          {revealed ? (
+            <Button type="primary" size="large" onClick={goNext}>
+              {questionIndex + 1 >= questions.length ? 'Voir le résultat' : 'Suivante'}
+            </Button>
+          ) : (
+            <Button
+              type="primary"
+              size="large"
+              onClick={submitAnswer}
+              disabled={selectedOption === null}
+            >
+              Valider
+            </Button>
+          )}
+        </div>
       </Card>
     </div>
   )

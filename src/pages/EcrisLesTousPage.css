@@ -46,6 +46,125 @@
   margin-bottom: 24px;
 }
 
+/* Sur les écrans centrés, l'espacement vient du `gap` de .page-centree. */
+.page-centree > .ecris-card {
+  margin-bottom: 0;
+}
+
+/* Choix du variant, à l'intro */
+.ecris-variant-choix {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ecris-variant-hint {
+  display: block;
+  margin-top: 10px;
+  max-width: 460px;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* Variant « Par critère » : consigne et progression */
+.ecris-criteres-consigne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--smash-red-soft);
+  border-radius: 10px;
+  background: rgba(230, 0, 18, 0.07);
+}
+
+.ecris-criteres-instruction {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.ecris-criteres-restants {
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* Progression au sein d'un critère qui demande plusieurs combattants. */
+.ecris-criteres-pastilles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ecris-criteres-pastille {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ecris-criteres-pastille-ok {
+  background: #52c41a;
+  box-shadow: 0 0 8px rgba(82, 196, 26, 0.5);
+}
+
+/* Deuxième passage sur un critère mis de côté : liseré orange pour le distinguer
+   d'un critère vu pour la première fois. */
+.ecris-criteres-consigne-rattrapage {
+  border-color: rgba(250, 173, 20, 0.5);
+  background: rgba(250, 173, 20, 0.08);
+}
+
+.ecris-criteres-badge-rattrapage {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 173, 20, 0.5);
+  background: rgba(250, 173, 20, 0.14);
+  color: #ffd666;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.ecris-criteres-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Variant « Jauge » */
+.ecris-jauge-bloc {
+  margin: 16px 0 20px;
+}
+
+.ecris-jauge-ligne {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.ecris-jauge-valeur {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.1rem;
+}
+
+.ecris-jauge-valeur-critique {
+  color: var(--smash-red) !important;
+}
+
+.ecris-jauge-message {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
 .ecris-card .ant-typography {
   color: var(--smash-text);
 }
@@ -204,10 +323,10 @@
   margin-top: 12px;
 }
 
-.ecris-manquants-popover {
-  max-width: 420px;
-  max-height: 70vh;
+.ecris-manquants-liste {
+  max-height: 65vh;
   overflow-y: auto;
+  padding-right: 4px;
 }
 
 .ecris-manquants-grid {

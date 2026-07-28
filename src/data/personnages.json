@@ -1708,7 +1708,7 @@
     "id": 76,
     "name": "Joker",
     "series": "Persona",
-    "number": "71ε",
+    "number": "71",
     "filename": "joker.webp",
     "zoom": 300,
     "position": {
@@ -1910,7 +1910,7 @@
   {
     "id": 85,
     "name": "Kazuya",
-    "series": "Dragon Quest",
+    "series": "Tekken",
     "number": "81",
     "filename": "kazuya.webp",
     "zoom": 300,

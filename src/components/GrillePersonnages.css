@@ -8,17 +8,11 @@
   margin: 0 auto;
 }
 
-.grille-personnages > span {
-  display: contents;
-}
-
-.grille-personnages-cell-wrapper-clickable {
-  display: contents;
-  cursor: pointer;
-}
-
 .grille-personnages-cell {
   aspect-ratio: 1;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   background: rgba(20, 20, 20, 0.9);
   border: 1px solid var(--smash-border);
   border-radius: 6px;
@@ -58,6 +52,7 @@
 .grille-personnages-img {
   background-size: 100%;
   background-position: 0% 0%;
+  background-repeat: no-repeat;
 }
 
 .grille-personnages-nom {
@@ -110,11 +105,29 @@
 
 .grille-personnages-cell-clickable {
   cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.grille-personnages-cell-clickable:hover {
+.grille-personnages-cell-clickable:hover,
+.grille-personnages-cell-clickable:focus-visible {
   border-color: var(--smash-red);
-  box-shadow: 0 0 0 1px var(--smash-red-soft);
+  box-shadow: 0 0 0 2px var(--smash-red-soft), 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px) scale(1.06);
+  outline: none;
+  /* Sortir la case du flux visuel de la grille pour que l'agrandissement passe
+     par-dessus ses voisines plutôt qu'en dessous. */
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grille-personnages-cell-clickable {
+    transition: border-color 0.15s ease;
+  }
+  .grille-personnages-cell-clickable:hover,
+  .grille-personnages-cell-clickable:focus-visible {
+    transform: none;
+  }
 }
 
 /* Détail personnage (contenu réutilisé dans le panneau HomePage) */
