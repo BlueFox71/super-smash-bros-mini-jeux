@@ -1,6 +1,8 @@
 name: Release desktop
 
 # Publier une version = pousser un tag :  git tag v1.0.0 && git push --tags
+# Avant le tag : réécrire RELEASE_NOTES.md (rapport pour le joueur, marqueur à la nouvelle
+# version). La dernière étape le pose comme notes de la release, que Le Grenier affiche.
 #
 # Le Grenier (BlueFox71/le-grenier) lit la dernière release de ce dépôt, compare son
 # tag à la version installée, et télécharge l'asset .exe. Deux contraintes viennent de
@@ -66,3 +68,13 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: Mini-Jeux-Smash-*.exe
+
+      # Le rapport de RELEASE_NOTES.md devient les notes de la release : c'est la section
+      # « Actualités » de la fiche dans Le Grenier. Le script exige que son marqueur
+      # <!-- version: X.Y.Z --> égale la version de package.json : un tag poussé sans
+      # rapport à jour fait ÉCHOUER cette étape, volontairement (l'exe est déjà publié ;
+      # corriger le fichier puis relancer le script à la main avec un GH_TOKEN).
+      - name: Publish release notes
+        run: node scripts/publish-notes.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
